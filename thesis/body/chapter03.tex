@@ -1,50 +1,54 @@
 % !TEX root = ../main.tex
 
 % 中英标题：\chapter{中文标题}[英文标题]
-\chapter{排版公式}[Typesetting equations]
+\chapter{基于改进的贪心算法的模型求解方案}[Model Solving Scheme Based on Improved Greedy Algorithm]
 
-\section{引言}[Introduction]
+\section{算法的基本思想}[Algorithm th]
+使用贪心算法对模型进行求解的基本思想是，在一次救援任务中依次为每架无人机生成扫描覆盖路径，每条扫描覆盖路径的起点和终点均为基地$B$。在路径规划过程中，我们设计了一个成本函数来计算访问每个兴趣点的成本。
+该成本函数考虑了访问兴趣点所需的时间、该兴趣点的时间敏感性$T_s$、当前无人机的扫描覆盖进度和载重等因素。在路径规划时，我们采用贪婪策略，每次都选择覆盖成本最低的兴趣点，从而为当前无人机获得最佳的扫描路径。
 
-\lipsum[1]
+\section{算法的细节}[Details of the algorithm]
+在无人机出发之前，首先需要检查兴趣点的时间敏感性$T_s$是否合理。如果兴趣点$i$的时间敏感性$ts_i$比无人机从基地$B$至该兴趣点的直线飞行时间$\frac{d_{iB}}{v}$小，则说明无论如何无人机都无法在准确时间内对该兴趣点进行访问，
+需要重新检查时间敏感性。接下来，逐个对$m$架无人机规划扫描路径$O=\lbrace o_1, o_2, \cdots ,o_m \rbrace$进行规划。第$k$架无人机的初始扫描路径$O_k$为$\emptyset$。变量$T_k$用于记录无人机在起飞后所花费的时间，其初始值
+为无人机在上升阶段所花费的时间$T_a$。对于$P$中的每个兴趣点$p_i$，我们首先判断这个兴趣点是否满足兴趣点可访问的三个条件。第一个条件是当无人机飞到兴趣点$p_i$时，该兴趣点仍然存活，也就是说时间在可接受范围$(1+e) \cdot ts_i$内。
+第二个条件是，当无人机执行完任务后，剩余的续航里程可以让无人机返回至基地$B$进行充电和维护等作业。第三个条件是无人机在执行任务时不能超重运输。只有当这三个条件同时满足时，我们才说兴趣点$p_i$是可访问的。
 
-\section{对物理量符号进行注释的情况}[The condition when physical symbols
-need to be annotated]
 
-为使得对公式中物理量符号注释的转行与破折号“———”后第一个字对齐，此处最好采用表格
-环境。此表格无任何线条，左对齐，且在破折号处对齐，一共有“式中”二字、物理量符号和
-注释三列，表格的总宽度可选为文本宽度，因此应该采用\verb|tabularx|环境。由
-\verb|tabularx|环境生成的对公式中物理量符号进行注释的公式如式(\ref{eq:1})所示。
-\begin{equation}\label{eq:1}
-\ddot{\bm{\rho}}-\frac{\mu}{R_{t}^{3}}\left(3\bm{R_{t}}\frac{\bm{R_{t}\rho}}{R_{t}^{2}}-\bm{\rho}\right)=\bm{a}
-\end{equation}
-\begin{tabularx}{\textwidth}{@{}l@{\quad}r@{———}X@{}}
-式中& $\bm{\rho}$ &追踪飞行器与目标飞行器之间的相对位置矢量；\\
-&  $\bm{\ddot{\rho}}$&追踪飞行器与目标飞行器之间的相对加速度；\\
-&  $\bm{a}$   &推力所产生的加速度；\\
-&  $\bm{R_t}$ & 目标飞行器在惯性坐标系中的位置矢量；\\
-&  $\omega_{t}$ & 目标飞行器的轨道角速度；\\
-\end{tabularx}\vspace{3.15bp}
-由此方法生成的注释内容应紧邻待注释公式并置于其下方，因此不能将代码放入
-\verb|table|浮动环境中。但此方法不能实现自动转页接排，可能会在当前页剩余空间不够
-时，全部移动到下一页而导致当前页出现很大空白。因此在需要转页处理时，还请您手动将
-需要转页的代码放入一个新的\verb|tabularx|环境中，将原来的一个\verb|tabularx|环境
-拆分为两个\verb|tabularx|环境。
+然后，我们设计了一个成本函数来评估无人机访问$p_i$的成本：
+$$ \varphi = \frac{T_k}{T_{max}}$$
+$$ C_i = \alpha t_i + \beta (ts_i - T_k)^\varphi + \gamma m_i $$
 
-\section{子公式}[Sub-Equations]
 
-子公式编号示例：如果需要对公式的子公式进行编号，则使用\lstinline{subeqnarray}环境：
-\begin{subeqnarray}
-  \label{eqw}
-  \slabel{eq0}
-  x & = & a \times b \\
-  \slabel{eq1}
-  & = & z + t\\
-  \slabel{eq2}
-  & = & z + t
-\end{subeqnarray}
+系数$\alpha$反映当前无人机的扫描覆盖任务完成进度。$(ts_i - T_k)$表示兴趣点$p_i$的剩余访问时间，扫描覆盖任务越接近结束，访问兴趣点的优先级越高，剩余的访问时间越短。$m_i$代表的是兴趣点$p_i$所需求的救援物资质量。
+$\alpha,\beta,\gamma$是系数，负责调节三个影响因素的权重。在成本函数中，距离当前位置近、剩余可访问时间短且载重要求低的兴趣点访问成本最低，将首先被访问。如果该兴趣点不可访问，则会将$C_i$设置为$+\infty$。计算完所有兴趣点
+的成本后，选择访问成本最小的兴趣点$p_j$，然后将$p_j$添加到路径$O_k$中，并将其从$P$中删除，更新计时器$T_k$，并判断兴趣点$p_j$的准时覆盖情况和有效覆盖情况。
 
-\equref{eqw}中，\lstinline{label}为整个公式的标签，\lstinline{slabel}为子公式的标签。
+
+如果$p_j$不存在，即当前$P$中所有的兴趣点成本均为$+\infty$，则意味着没有兴趣点可以被继续覆盖，在这种情况下，我们还可以要求无人机在不超重且续航里程足够的情况下，访问较近的已超时但未被访问的兴趣点，实现对所有兴趣点的尽可能的覆盖。
+完成任务后，无人机$u_k$应返回基地$B$，当$u_k$返回基地或已经没有剩余的未被访问的兴趣点时，$u_k$的路径规划完成。
+
+
+最后，在全部$m$架无人机的路径都被规划完成后，根据第二章中提到的公式计算有效覆盖率$R_e$和准时覆盖率$R_o$，算法结束。
+
+\section{算法的伪代码}[Pseudocode of the algorithm]
+\begin{algorithm}[H]
+\caption{改进的贪心算法}
+\LinesNumbered %要求显示行号
+\KwIn{\rm video \ \it X,\ \rm hole \ \it H,\ \rm validity \ \it V \\}
+\KwOut{\rm complection \ video \it Y \\ }
+\For{condition}{
+	only if\;
+	\If{condition}{
+		1\;
+	}
+}
+\end{algorithm}
+
+\section{算法的复杂度分析}[Complexity Analysis of Algorithm]
+在本算法中，计算$P$中所有兴趣点的访问成本的部分复时间复杂度为$O(n)$，因为$P$有$n$个兴趣点。同样，将兴趣点添加到无人机的扫描路径的过程，其时间复杂度也为$O(n)$。最后，在规划$m$架无人就的扫描路径时，迭代次数为$m$，故
+本算法的时间复杂度为$O(mn^2)$。
+
+\section{算法的改进}[Improved algorithms]
 
 \section{本章小结}[Brief summary]
-
-\lipsum[1]
+在本章中，我们主要介绍了改进的贪心算法的基本思想和算法细节，同时对该算法的复杂性进行了分析。

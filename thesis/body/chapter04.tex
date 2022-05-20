@@ -1,152 +1,124 @@
 % !TEX root = ../main.tex
 
 % 中英标题：\chapter{中文标题}[英文标题]
-\chapter{排版表格}[Typesetting tables]
+\chapter{基于改进的遗传算法的模型求解方案}[Model Solving Scheme Based on Improved Genetic Algorithm]
 
-\section{引言}[Introduction]
+\section{算法设计}[Algorithm design]
 
-表应有自明性。表格不加左、右边线。表的编排建议采用国际通行的三线表。表中文字用宋
-体~5~号字。每个表格均应有表题（由表序和表名组成）。表序一般按章编排，如第~1~章第
-一个插表的序号为“表~1-1”等。表序与表名之间空一格，表名中不允许使用标点符号，表名
-后不加标点。表题置于表上，硕士学位论文只用中文，博士学位论文用中、英文两种文字居
-中排写，中文在上，要求中文用宋体~5~号字，英文用新罗马字体~5~号字。表头设计应简单
-明了，尽量不用斜线。表头中可采用化学符号或物理量符号。
+\subsection{染色体的编码方法}[Method of chromosome coding]
+在遗传算法中，染色体的编码方法主要有二进制编码法、符号编码法和自然数编码法等。在本问题中，我们选择的是自然数编码法。
 
-\section{普通表格的绘制方法}[Methods of drawing normal tables]
 
-表格应具有三线表格式，因此需要调用~booktabs~宏包，其标准格式如表~\ref{table1}~所示。
-\begin{table}[htbp]
-\bicaption[table1]{}{符合研究生院绘图规范的表格}{Table$\!$}{Table in agreement of the standard from graduate school}
-\vspace{0.5em}\centering\wuhao
-\begin{tabular}{ccccc}
-\toprule[1.5pt]
-$D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
-\midrule[1pt]
- 5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
-10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
-20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
-\bottomrule[1.5pt]
-\end{tabular}
-\end{table}
-全表如用同一单位，则将单位符号移至表头右上角，加圆括号。表中数据应准确无误，书写
-清楚。数字空缺的格内加横线“－”（占~2~个数字宽度）。表内文字或数字上、下或左、右
-相同时，采用通栏处理方式，不允许用“〃”、“同上”之类的写法。表内文字说明，起行空一
-格、转行顶格、句末不加标点。如某个表需要转页接排，在随后的各页上应重复表的编号。
-编号后加“（续表）”，表题可省略。续表应重复表头。
+自然数编码由自然数$1,2,\cdots,n$组成，这些基因位代表的是兴趣点，而基因的序列则代表无人机对兴趣点的访问顺序。$0$在编码中表示的是基地$B$，由于无人机从基地$B$出发，
+完成配送任务后又返回基地$B$，因此单架无人机的访问顺序总是从$0$开始，而又从$0$结束。基地$B$的编码$0$又可以很方便地将不同无人机的线路分离。自然数编码能够很好地反映
+无人机参与救援的过程，便于后面代码的撰写，因此选择了该编码方法。
 
-\section{长表格的绘制方法}[Methods of drawing long tables]
 
-长表格是当表格在当前页排不下而需要转页接排的情况下所采用的一种表格环境。若长表格
-仍按照普通表格的绘制方法来获得，其所使用的\verb|table|浮动环境无法实现表格的换页
-接排功能，表格下方过长部分会排在表格第1页的页脚以下。为了能够实现长表格的转页接
-排功能，需要调用~longtable~宏包，由于长表格是跨页的文本内容，因此只需要单独的
-\verb|longtable|环境，所绘制的长表格的格式如表~\ref{table2}~所示。
+在本问题中，基地$B$中停放有$m$架无人机，对$n$个兴趣点实施救援。由于在整个流程中，每个兴趣点只被访问一次，所以无人机的数量决定了子路径的数量，从而本问题中一条染色体的长度
+为$k+n+1$。例如，一条染色体的编码为``0 7 8 0 4 5 6 0 1 3 2 0 9 0''，这代表$4$架无人机同时对$9$个兴趣点进行救援，所有的子路径为：
+$$0\rightarrow7\rightarrow8\rightarrow0,0\rightarrow4\rightarrow5\rightarrow6\rightarrow0,0\rightarrow1\rightarrow3\rightarrow2\rightarrow0,0\rightarrow9\rightarrow0$$
 
-注意，长表格双语标题的格式。
+\subsection{种群的初始化设计}[Population initialization design]
+初始化种群时，我们采用随机访问的方法进行设计。首先随机产生一条无人机的配送子路径，如果无人机根据这条路径运送救援物资能够不超出无人机的最大载重$w$，则存储这条路径，反之抛弃这条路径，
+然后重复这个过程，直到所有的兴趣点都被无人机访问。
 
-\vspace{-1.5bp}
-\ltfontsize{\wuhao[1.667]}
-\wuhao[1.667]\begin{longtable}{ccc}%
-\longbionenumcaption{}{{\wuhao 中国省级行政单位一览
-}\label{table2}}{Table$\!$}{}{{\wuhao Overview of the provincial administrative
-unit of China}}{-0.5em}{3.15bp}\\
-%\caption{\wuhao 中国省级行政单位一览}\\
-\toprule[1.5pt] 名称 & 简称 & 省会或首府  \\ \midrule[1pt]
-\endfirsthead
-\multicolumn{3}{r}{表~\thetable（续表）}\vspace{0.5em}\\
-\toprule[1.5pt] 名称 & 简称 & 省会或首府  \\ \midrule[1pt]
-\endhead
-\bottomrule[1.5pt]
-\endfoot
-北京市 & 京 & 北京\\
-天津市 & 津 & 天津\\
-河北省 & 冀 & 石家庄市\\
-山西省 & 晋 & 太原市\\
-内蒙古自治区 & 蒙 & 呼和浩特市\\
-辽宁省 & 辽 & 沈阳市\\
-吉林省 & 吉 & 长春市\\
-黑龙江省 & 黑 & 哈尔滨市\\
-上海市 & 沪/申 & 上海\\
-江苏省 & 苏 & 南京市\\
-浙江省 & 浙 & 杭州市\\
-安徽省 & 皖 & 合肥市\\
-福建省 & 闽 & 福州市\\
-江西省 & 赣 & 南昌市\\
-山东省 & 鲁 & 济南市\\
-河南省 & 豫 & 郑州市\\
-湖北省 & 鄂 & 武汉市\\
-湖南省 & 湘 & 长沙市\\
-广东省 & 粤 & 广州市\\
-广西壮族自治区 & 桂 & 南宁市\\
-海南省 & 琼 & 海口市\\
-重庆市 & 渝 & 重庆\\
-四川省 & 川/蜀 & 成都市\\
-贵州省 & 黔/贵 & 贵阳市\\
-云南省 & 云/滇 & 昆明市\\
-西藏自治区 & 藏 & 拉萨市\\
-陕西省 & 陕/秦 & 西安市\\
-甘肃省 & 甘/陇 & 兰州市\\
-青海省 & 青 & 西宁市\\
-宁夏回族自治区 & 宁 & 银川市\\
-新疆维吾尔自治区 & 新 & 乌鲁木齐市\\
-香港特别行政区 & 港 & 香港\\
-澳门特别行政区 & 澳 & 澳门\\
-台湾省 & 台 & 台北市\\
-\end{longtable}\normalsize
-\vspace{-1em}
 
-此长表格~\ref{table2}~第~2~页的标题“编号（续表）”和表头是通过代码自动添加上去的，无需人工添加，若表格在页面中的竖直位置发生了变化，长表格在第~2~页
-及之后各页的标题和表头位置能够始终处于各页的最顶部，也无需人工调整，\LaTeX~系统的这一优点是~word~等软件所无法比拟的。
+将以上的子路径组合起来，并将基地$B$用自然数$0$进行表示，连接这些子路径，可以得到一条包含所有兴趣点的染色体，这个染色体就是一套完整的无人机调度方案。在本问题中，我们将初始种群个数设置为
+$100$，即在初始化过程中会产生$100$条符合要求的染色体。
 
-\section{列宽可调表格的绘制方法}[Methods of drawing tables with adjustable-width columns]
-论文中能用到列宽可调表格的情况共有两种，一种是当插入的表格某一单元格内容过长以至
-于一行放不下的情况，另一种是当对公式中首次出现的物理量符号进行注释的情况，这两种
-情况都需要调用~tabularx~宏包。下面将分别对这两种情况下可调表格的绘制方法进行阐述
-。
-\subsection{表格内某单元格内容过长的情况}[The condition when the contents in
-some cells of tables are too long]
-首先给出这种情况下的一个例子如表~\ref{table3}~所示。
-\begin{table}[htbp]
-  \centering
-\bicaption[table3]{}{最小的三个正整数的英文表示法}{Table$\!$}{The English construction of the smallest three positive integral numbers}\vspace{0.5em}\wuhao
-\begin{tabularx}{0.7\textwidth}{llX}
-\toprule[1.5pt]
-Value & Name & Alternate names, and names for sets of the given size\\\midrule[1pt]
-1 & One & ace, single, singleton, unary, unit, unity\\
-2 & Two & binary, brace, couple, couplet, distich, deuce, double, doubleton, duad, duality, duet, duo, dyad, pair, snake eyes, span, twain, twosome, yoke\\
-3 & Three & deuce-ace, leash, set, tercet, ternary, ternion, terzetto, threesome, tierce, trey, triad, trine, trinity, trio, triplet, troika, hat-trick\\\bottomrule[1.5pt]
-\end{tabularx}
-\end{table}
-tabularx环境共有两个必选参数：第1个参数用来确定表格的总宽度，第2个参数用来确定每
-列格式，其中标为X的项表示该列的宽度可调，其宽度值由表格总宽度确定。标为X的列一般
-选为单元格内容过长而无法置于一行的列，这样使得该列内容能够根据表格总宽度自动分行
-。若列格式中存在不止一个X项，则这些标为X的列的列宽相同，因此，一般不将内容较短的
-列设为X。标为X的列均为左对齐，因此其余列一般选为l（左对齐），这样可使得表格美观
-，但也可以选为c或r。
+\subsection{适应度函数设计}[Design of fitness function]
+使用自然数对染色体进行编码，可以保证无人机的飞行路径较为清晰，但是不能确保在进化过程中产生的新路径能够一定满足不超重和尽可能少超时，所以为了确保进化过程中能产生最优解，我们需要引入一个惩罚函数，
+对不合理的路径规划结果进行惩罚：
+$$ f= \alpha d_s + \beta m_s + \gamma w_s $$
 
-\subsection{排版横版表格的举例}[An example of landscape table]
 
-横版表格如\tabref{table4}所示。
+其中，$d_s$是无人机的飞行距离之和，$m_s$是所有子路径中无人机的超重数量之和，$w_s$是所有子路径中无人机超出时间窗之和。而$\alpha,\beta,\gamma$是系数，根据各参数的重要性，将这些参数设置为
+$\alpha = 1,\beta = 10,\gamma = 100$。
 
-\begin{table}[p]
-\centering
-  \begin{sideways}
-    \begin{minipage}{\textheight}
-      \bicaption[table4]{}{不在规范中规定的横版表格}{Table$\!$}{A table style which is not stated in the regulation}
-      \vspace{0.5em}\centering\wuhao
-      \begin{tabular}{ccccc}
-        \toprule[1.5pt]
-        $D$(in) & $P_u$(lbs) & $u_u$(in) & $\beta$ & $G_f$(psi.in)\\
-        \midrule[1pt]
-        5 & 269.8 & 0.000674 & 1.79 & 0.04089\\
-        10 & 421.0 & 0.001035 & 3.59 & 0.04089\\
-        20 & 640.2 & 0.001565 & 7.18 & 0.04089\\
-        \bottomrule[1.5pt]
-      \end{tabular}
-    \end{minipage}
-  \end{sideways}
-\end{table}
 
+由于各参数的单位不统一，在计算惩罚函数时还需要对数据进行归一处理。
+
+
+所有子路径中无人机超出时间窗之和$w_s$用以下公式表示：
+$$ w_s = \sum_{i=1}^n max\left\{\Delta t_i,0\right\}$$
+
+
+其中，$\Delta t_i$代表无人机从起飞到访问兴趣点$p_i$所花费的时间与该兴趣点的时间窗$ts_i$之差。
+
+
+为了衡量个体的适应度，将适应度函数$F$设置为惩罚函数$f$的倒数：
+$$ F = \frac{1}{f}$$
+
+\subsection{对个体的择优}[Individual preference]
+为了更好地模拟孟德尔豌豆实验，在算法中加入了对优秀个体自花授粉的过程。将初始化种群中的100个个体按照适应度大小进行排序，选择其前
+$5\%$的的染色体进行自交，而其余的染色体则进入选择阶段。在自交过程中，会产生2倍数量的个体，他们跳过选择阶段，直接进入变异过程，这样可以有效
+保护优秀基因。
+
+\subsection{选择过程}[selection process]
+采用轮盘赌算法进行个体的选择。轮盘赌算法是一种回放式的随机采样方法，个体进入下一代的概率就是其适应度与整个种群个体适应度之和的比值，适应度的值越大，个体被选中的概率也就越大。
+但是，传统轮盘赌算法误差较大，部分个体容易被多次选出，可能会削弱种群的规模和降低种群多样性，导致最终陷入局部最优解。为了避免这种情况，本文对轮盘赌算法进行了一些改进：
+$$ F_i' = F_i - F_{min} $$
+
+
+其中，$F_i$是第$i$个个体的适应度，$F_{min}$是所有个体中适应度的最小值，其计算方法如下：
+$$ F_{min} = min\left\{F\right\} $$
+
+
+最后，可以计算出第$i$条染色体被选择的概率为：
+$$ P(i) = \frac{F_i}{\sum F_i'} $$
+
+\subsection{交叉操作}[Crossover operation]
+在遗传算法中，交叉操作是指满足交叉概率$p_c$两个相互配对的染色体交换部分基因，形成新的个体。常用的交叉方式有单点交叉、两点交叉、多点交叉和均匀交叉等。由于该问题的特殊性，所有存在无人机超重情况的规划路径都
+应该被剔除，因此这里在进行交叉操作时，需要使得结果尽量避免存在有无人机在运输过程中超重，交叉过程如\figref{fg401}所示：
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{fg3_jiaocha}
+	\caption{交叉操作过程示例}
+	\label{fg401}
+\end{figure}
+
+
+\begin{itemize}
+	\item [(1)] 针对满足交叉概率$p_c$的父代个体1和父代个体2，从父代个体1中随机选择一个子路径作为交叉片段（不包括子路径中的自然数0）；
+	\item [(2)] 从父代个体2中寻找与上述子路径编号对应的片段，作为父代个体2的交叉片段；
+	\item [(3)] 交换父代个体1和父代个体2的交叉片段，得到子代个体1和子代个体2；
+ 	\item [(4)] 重复上述步骤，直到生成子代的数量符合要求。
+\end{itemize}
+
+\subsection{变异操作}[Mutation operation]
+针对满足变异概率$p_m$的染色体，在兴趣点编号范围内随机选出两个不相同且不为0的数字，将染色体对应的基因编码进行交换，即为变异过程。变异过程如\figref{fg402}所示。
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{fg4_bianyi}
+	\caption{变异操作过程示例}
+	\label{fg402}
+\end{figure}
+\subsection{对基因的多轮筛选}[Multiple rounds of gene screening]
+在种群初始化、交叉算子和变异算子后，选择对各条路径的载重约束进行检查。如果发现有个体对应的路径存在无人机超重配送的情况，应该对染色体予以删除，以符合无人机的飞行安全要求。
+
+\section{算法的伪代码}[Pseudocode of the algorithm]
+\begin{algorithm}[H]
+\caption{改进的遗传算法}
+\LinesNumbered %要求显示行号
+\KwIn{\rm video \ \it X,\ \rm hole \ \it H,\ \rm validity \ \it V \\}
+\KwOut{\rm complection \ video \it Y \\ }
+\For{condition}{
+	only if\;
+	\If{condition}{
+		1\;
+	}
+}
+\end{algorithm}
+
+\section{算法的复杂度分析}[Complexity Analysis of Algorithm]
+
+\section{算法的改进}[Improved algorithms]
+与传统的遗传算法相比，本文提出的算法有以下改进点：
+\begin{itemize}
+	\item [(1)] 在算法中加入多轮筛选，对不符合无人机载重要求的个体予以删除，符合优质个体多繁衍，劣质个体少繁衍甚至不繁衍的自然选择规律；
+	\item [(2)] 类似孟德尔豌豆杂交实验，在适应度计算完成后对优秀的个体进行自花授粉，以保留优秀个体的基因；
+	\item [(3)] 对轮盘赌选择方法进行了改进，避免削弱种群的规模和降低种群多样性，防止陷入局部最优解；
+ 	\item [(4)] 对交叉过程进行了改进，尽量避免了交叉过程后存在有无人机在运输过程中超重的问题。
+\end{itemize}
 \section{本章小结}[Brief summary]
-
-\lipsum[1]
+本章主要对遗传算法的基本流程进行了介绍，并且针对传统遗传算法不足之处进行了一些改进，提出了一种改进的遗传算法以解决带时间敏感的无人机扫描覆盖问题，该算法便于找到更优秀的最终解。

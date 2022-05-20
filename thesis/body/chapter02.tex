@@ -1,286 +1,161 @@
 % !TEX root = ../main.tex
 
 % 中英标题：\chapter{中文标题}[英文标题]
-\chapter{排版图片}[Typesetting pictures]
+\chapter{无人机紧急救援系统分析及问题模型构建}[Analysis and Problem Model Construction of UAV Emergency Rescue System]
 
-\section{引言}[Introduction]
-图应有自明性。插图应与文字紧密配合，文图相符，内容正确。选图要力求精练，插图、照
-片应完整清晰。机械工程图：采用第一角投影法，严格按照GB4457~GB131-83《机械制图》
-标准规定。数据流程图、程序流程图、系统流程图等按GB1526-89标准规定。电气图：图形
-符号、文字符号等应符合附录3所列有关标准的规定。流程图：必须采用结构化程序并正确
-运用流程框图。对无规定符号的图形应采用该行业的常用画法。坐标图的坐标线均用细实线
-，粗细不得超过图中曲线；有数字标注的坐标图，必须注明坐标单位。照片图要求主题和主
-要显示部分的轮廓鲜明，便于制版。如用放大或缩小的复制品，必须清晰，反差适中。照片
-上应有表示目的物尺寸的标度。引用文献中的图时，除在正文文字中标注参考文献序号以外
-，还必须在中、英文表题的右上角标注参考文献序号。
+\section{问题分析}[Problem analysis]
+无人机是本课题中所涉及的紧急救援系统的主体，因此在将无人机应用于紧急救援和物资投放时，要综合分析无人机的特点，
+在考虑其优势的同时，也要分析其劣势对于救援系统的影响，并在系统设计中做到扬长避短，充分利用无人机本身的特性。
 
-\section{博士毕业论文双语题注}[Doctoral picture example]
 
-博士毕业论文双语题注如\figref{golfer1}所示。
+经过综合分析，我们发现无人机在紧急救援系统中，具有以下特点：
+\begin{itemize}
+	\item [(1)] 
+	无人机的续航能力制约了其飞行距离
 
-\begin{figure}[htpb]
-\centering
-\includegraphics[width = 0.4\textwidth]{golfer}
-\bicaption[golfer1]{}{打高尔夫球球的人（博士论文双语题注）}{Fig.$\!$}{The person playing golf (Doctoral thesis)}
-\end{figure}
 
-每个图均应有图题（由图序和图名组成），图题不宜有标点符号，图名在图序之后空1个半
-角字符排写。图序按章编排，如第1章第一个插图的图号为“图1-1”。图题置于图下，硕士论
-文只用中文，博士论文用中、英两种文字，居中书写，中文在上，要求中文用宋体5号字，
-英文用Times New Roman 5号字。有图注或其它说明时应置于图题之上。引用图应注明出处
-，在图题右上角加引用文献号。图中若有分图时，分图题置于分图之下或图题之下，可以只
-用中文书写，分图号用a)、b)等表示。图中各部分说明应采用中文（引用的外文图除外）或
-数字符号，各项文字说明置于图题之上（有分图时，置于分图题之上）。图中文字用宋体、
-Times New Roman字体，字号尽量采用5号字（当字数较多时可用小5号字，以清晰表达为原
-则，但在一个插图内字号要统一）。同一图内使用文字应统一。图表中物理量、符号用斜体
-。
-\subsection{本硕论文题注}[Other picture example]
+	\qquad 目前，大多数无人机均采用电池驱动，受制于目前的电池技术发展，民用货运无人机最大历程约为300km，
+	且在载重情况下飞行，无人机的续航时间将会进一步降低，同时无人机在电量不足时还需要返回调度中心进行充电。
+	\item [(2)]
+	无人机相较于大型物资供应车辆，行动更加灵活
 
-本硕论文题注如\figref{fig:bm}所示。
+
+	\qquad 自然灾害发生后，受灾地区往往会面临道路中断和交通阻塞等困难。如果使用传统大型物资供应车辆供应物资，
+	很有可能会导致紧急物资供应不及时。而无人机在飞行至一定高度后，其行动路径将不会受到上述问题的阻碍，理论上
+	可以进行点到点的直接飞行，有效提高了应急救援物资的配送效率。
+	\item [(3)]
+	无人机的飞行受我国法律限制
+
+
+	\qquad 目前，我国一些地方对于无人机的飞行管理十分严格，设立了禁飞区和管控区等，这导致我们在设计无人机紧
+	急救援系统时，应该结合实际情况，有效避免无人机的飞行轨迹经过禁飞区。
+	\item [(4)]
+	民用无人机的载重能力有限
+
+
+	\qquad 随着无人机技术的不断发展，目前无人机的载重能力已经有了大幅的提升。但是目前重载无人机多用于军事领域，
+	在民用领域鲜有使用。因此在设计无人机紧急救援系统时，无人机负责进行的配送物资多为紧急需要的医疗物资和部分
+	较轻的生活物资等，在使用无人机进行物资配送时需要考虑这一特点。
+\end{itemize}
+
+\section{带时间敏感性的无人机网络扫描覆盖问题的建立}[Establishment of Scanning Coverage Problem for UAV Networks with Time Sensitivity]
+
+本课题中提出的无人机紧急救援系统，主要包含了无人机基地、救援点和无人机等，同时还包括无人机调度的优化目标、
+约束条件以及求解模型所对应的算法等。该紧急救援系统的总体设计如\figref{fg201}所示:
 
 \begin{figure}[ht]
-\centering
-\includegraphics[width = 0.4\textwidth]{golfer}
-\caption{打高尔夫球的人，硕士论文要求只用汉语}
-\label{fig:bm}
-\end{figure}
-
-\subsection{并排图和子图}[Abreast-picture and Sub-picture example]
-\subsubsection{并排图}[Abreast-picture example]
-
-使用并排图时，需要注意对齐方式。默认情况是中部对齐。这里给出中部对齐、顶部对齐
-、图片底部对齐三种常见方式。其中，底部对齐方式有一个很巧妙的方式，将长度比较小
-的图放在左面即可。
-
-\lipsum[2]
-
-\begin{figure}[htbp]
-\centering
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{golfer}
-\bicaption[golfer2]{}{打高尔夫球的人}{Fig.$\!$}{The person playing golf}
-\end{minipage}
-\centering
-\begin{minipage}{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{golfer}
-\bicaption[golfer3]{}{打高尔夫球的人。注意，这里默认居中}{Fig.$\!$}{The person playing golf. Please note that, it is vertically center aligned by default.}
-\end{minipage}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\begin{minipage}[t]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{golfer}
-\bicaption[golfer5]{}{打高尔夫球的人}{Fig.$\!$}{The person playing golf}
-\end{minipage}
-\centering
-\begin{minipage}[t]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{golfer}
-\bicaption[golfer8]{}{打高尔夫球的人。注意，此图是顶部对齐}{Fig.$\!$}{The person playing golf. Please note that, it is vertically top aligned.}
-\end{minipage}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\begin{minipage}[t]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth,height=\textwidth]{golfer}
-\bicaption[golfer9]{}{打高尔夫球的人。注意，此图对齐方式是图片底部对齐}{Fig.$\!$}{The person playing golf. Please note that, it is vertically bottom aligned for figure.}
-\end{minipage}
-\centering
-\begin{minipage}[t]{0.4\textwidth}
-\centering
-\includegraphics[width=\textwidth]{golfer}
-\bicaption[golfer6]{}{打高尔夫球的人}{Fig.$\!$}{The person playing golf}
-\end{minipage}
-\end{figure}
-
-\subsubsection{子图}[Sub-picture example]
-
-注意：子图题注也可以只用中文。规范规定“分图题置于分图之下或图题之下”，但没有给出具体的格式要求。
-没有要求的另外一个说法就是“无论什么格式都不对”。
-所以只有在一个图中有标注“a)，b)”，无法使用\cs{subfigure}的情况下，使用最后一个图例中的格式设置方法，否则不要使用。
-为了应对“无论什么格式都不对”，这个子图图题使用“minipage”和“description”环境，宽度，对齐方式可以按照个人喜好自由设置，是否使用双语子图图题也可以自由设置。
-
-\lipsum[1-3]
-
-无意义文字，每页底部不要留空白。
-
-\lipsum[4-5]
-
-\begin{figure}[!ht]
-\setlength{\subfigcapskip}{-1bp}
-\centering
-\begin{minipage}{\textwidth}
-\centering
-\subfigure{\label{golfer41}}\addtocounter{subfigure}{-2}
-\subfigure[The person playing golf]{\subfigure[打高尔夫球的人~1]{\includegraphics[width=0.4\textwidth]{golfer}}}
-\hspace{2em}
-\subfigure{\label{golfer42}}\addtocounter{subfigure}{-2}
-\subfigure[The person playing golf]{\subfigure[打高尔夫球的人~2]{\includegraphics[width=0.4\textwidth]{golfer}}}
-\end{minipage}
-\centering
-\begin{minipage}{\textwidth}
-\centering
-\subfigure{\label{golfer43}}\addtocounter{subfigure}{-2}
-\subfigure[The person playing golf]{\subfigure[打高尔夫球的人~3]{\includegraphics[width=0.4\textwidth]{golfer}}}
-\hspace{2em}
-\subfigure{\label{golfer44}}\addtocounter{subfigure}{-2}
-\subfigure[The person playing golf. Here, 'hang indent' and 'center last line' are not stipulated in the regulation.]{\subfigure[打高尔夫球的人~4。注意，规范中没有明确规定要悬挂缩进、最后一行居中。]{\includegraphics[width=0.4\textwidth]{golfer}}}
-\end{minipage}
-\vspace{0.2em}
-\bicaption[golfer4]{}{打高尔夫球的人}{Fig.$\!$}{The person playing gol}
-\end{figure}
-
-\begin{figure}[t]
-  \centering
-  \begin{minipage}{.7\linewidth}
-    \setlength{\subfigcapskip}{-1bp}
-    \centering
-    \begin{minipage}{\textwidth}
-      \centering
-      \subfigure{\label{golfer45}}\addtocounter{subfigure}{-2}
-      \subfigure[The person playing golf]{\subfigure[打高尔夫球的人~1]{\includegraphics[width=0.4\textwidth]{golfer}}}
-      \hspace{4em}
-      \subfigure{\label{golfer46}}\addtocounter{subfigure}{-2}
-      \subfigure[The person playing golf]{\subfigure[打高尔夫球的人~2]{\includegraphics[width=0.4\textwidth]{golfer}}}
-    \end{minipage}
-    \vskip 0.2em
-  \wuhao 注意：这里是中文图注添加位置（我工要求，图注在图题之上）。
-    \vspace{0.2em}
-\bicaption[golfer47]{}{打高尔夫球的人。注意，此处我工有另外一处要求，子图图题可以位于主图题之下。但由于没有明确说明位于下方具体是什么格式，所以这里不给出举例。}{Fig.$\!$}{The person playing golf. Please note that, although it is appropriate to put subfigures' captions under this caption as stipulated in regulation, but its format is not clearly stated.}
-  \end{minipage}
-\end{figure}
-
-\begin{figure}[t]
-\centering
-\begin{tikzpicture}
-	\node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=0.3\textwidth]{golfer}};
-	\begin{scope}[x={(image.south east)},y={(image.north west)}]
-		\node at (0.3,0.5) {a)};
-		\node at (0.8,0.2) {b)};
-	\end{scope}
-\end{tikzpicture}
-\bicaption[golfer0]{}{打高尔夫球球的人（博士论文双语题注）}{Fig.$\!$}{The person playing golf (Doctoral thesis)}
-\vskip -0.4em
- \hspace{2em}
-\begin{minipage}[t]{0.3\textwidth}
-\wuhao \setlist[description]{font=\normalfont}
-	\begin{description}
-		\item[(a)]子图图题
-	\end{description}
- \end{minipage}
- \hspace{2em}
- \begin{minipage}[t]{0.3\textwidth}
-\wuhao \setlist[description]{font=\normalfont}
-	\begin{description}
-		\item[(b)]子图图题
-		\item[(b)]Subfigure caption
-	\end{description}
-\end{minipage}
-\end{figure}
-
-
-\begin{figure}[!ht]
 	\centering
-	\begin{sideways}
-		\begin{minipage}{\textheight}
-			\centering
-			\fbox{\includegraphics[width=0.2\textwidth]{golfer}}
-			\fbox{\includegraphics[width=0.2\textwidth]{golfer}}
-			\fbox{\includegraphics[width=0.2\textwidth]{golfer}}
-			\fbox{\includegraphics[width=0.2\textwidth]{golfer}}
-			\fbox{\includegraphics[width=0.2\textwidth]{golfer}}
-			\fbox{\includegraphics[width=0.2\textwidth]{golfer}}
-			\fbox{\includegraphics[width=0.2\textwidth]{golfer}}
-\bicaption[golfer7]{}{打高尔夫球的人（非规范要求）}{Fig.$\!$}{The person playing golf (Not stated in the regulation)}
-		\end{minipage}
-	\end{sideways}
+	\includegraphics[width = 0.6\textwidth]{fg1_timesensitive}
+	\caption{无人机紧急救援系统}
+	\label{fg201}
 \end{figure}
 
-\clearpage
+\begin{itemize}
+	\item [(1)]  
+	无人机基地和物资仓库（以下简称“基地”）
 
-如果不想让图片浮动到下一章节，那么在此处使用\cs{clearpage}命令。
 
-\section{如何做出符合规范的漂亮的图}
+	\qquad 基地在紧急救援系统中主要负责救援物资的仓储、无人机的调度和无人机的维护充电等工作。当救援物资从
+	上游运送到基地后，其能够根据灾区目前的受灾情况和无人机状态等信息，计算和生成无人机调度方案。同时，基地
+	也负责对返回基地的无人机进行维护和充电等工作，也是无人机进行起飞和降落的起点和终点。
 
-关于作图工具在后文\ref{drawtool}中给出一些作图工具的介绍，此处不多言。
-此处以R语言和Tikz为例说明如何做出符合规范的图。
+	\item[(2)]
+	救援物资
 
-\subsection{Tikz作图举例}
+	
+	\qquad 在无人机救援过程中，需要考虑救援物资的质量、大小和配送终点等。在救援物资上印有唯一的身份信息标识，
+	基地中的扫描系统可以通过该身份信息标识获取该批救援物资的全部信息，并将这些信息存放在基地的信息管理系统中。
 
-使用Tikz作图核心思想是把格式、主题、样式与内容分离，定义在全局中。
-注意字体设置可以有两种选择，如何字少，用五号字，字多用小五。
-使用Tikz作图不会出现字体问题，字体会自动与正文一致。
+	\item[(3)]
+	无人机
 
-\begin{figure}[thb!]
-  \centering
-      \begin{tikzpicture}[xscale=0.8,yscale=0.3,rotate=90]
-        \small
-	\draw (-22,6.5) node[refcell]{参考基因组};
-	\draw[refline] (-23, 5) -- (27, 5);
-	\draw (-22,3.75) node[tscell]{肿瘤样本};
-	\draw (-20,3.75) node[tncell]{正常细胞};
-	\draw[tnline] (-21, 2.5) -- (27, 2.5);
-	\draw (-20,1.25) node[ttcell]{肿瘤细胞};
-	\rcell{2}{6};
-	\draw[fakeevolve] (4.5, 5.25) -- (4.5, 4.8);
-	\ncell{2}{4};
-	\draw[evolve] (4.5, 3) .. controls (4.5,2.8) and (-3.5,2.9) ..  (-3.5, 2);
-	\draw[evolve] (4.5, 3) .. controls (4.5,2.8) and (11.5,2.9) .. (11.5, 2);
-	\tcellone{-6}{1.5};
-	\draw (-9, 2) node[ttcell]{1};
-	\draw[evolve] (-3.5, 0) .. controls (-3.5,-0.2) and (-12,-0.1) .. (-12, -1.5);
-	\draw[evolve] (-3.5, 0) .. controls (-3.5,-0.2) and (1.5,-0.1) .. (1.5, -1.5);
-	\tcellthree{7}{1.5};
-	\draw (4, 2) node[ttcell]{2};
-	\draw[evolve] (11, 0.5) .. controls (11,0.3) and (19,0.4) .. (19, -1.5);
-	\tcellfive{-16}{-2};
-	\draw (-19, -1.5) node[ttcell]{3};
-	\tcelltwo{-1}{-2};
-	\draw (-4, -1.5) node[ttcell]{4};
-	\tcellfour{12}{-2};
-	\draw (9, -1.5) node[ttcell]{5};
-      \end{tikzpicture}
-  \begin{minipage}{.9\linewidth}
-      \vskip 0.2em
-      \wuhao 图中，带有箭头的淡蓝色箭头表示肿瘤子种群的进化方向。一般地，从肿瘤组织中取用于进行二代测序的样本中含有一定程度的正常细胞污染，因此肿瘤的样本中含有正常细胞和肿瘤细胞。每一个子种群的基因组的模拟过程是把生殖细胞变异和体细胞变异加入到参考基因组中。
-      \vspace{0.6em}
-  \end{minipage}
-\bicaption[tumor]{}{肿瘤组织中各个子种群的进化示意图}{Fig.$\!$}{The diagram of tumor subpopulation evolution process}
+	
+	\qquad 无人机是课题中紧急救援系统的核心。在无人机执行救援任务时，要对无人机的型号、续航里程、巡航速度和
+	最大载重等特性进行研究。民用无人机多用电池续航，采用北斗或GPS导航进行定位，附带有摄像头，可以对救援地点
+	进行航拍，以便基地了解受灾地点的现场情况。
+
+	\item[(4)]
+	待救援地点
+
+
+	\qquad 在救灾过程中，无人机需要在一定时间内快速到达需要被救援的地点，以提供支援。这些地点对于时间要求较为敏感，
+	如果无人机不能及时到达，可能会错过最佳救援时机，我们称这些点为兴趣点(Point of Interest,POI)。如\figref{fg201}所示，每个兴趣点都会
+	有不同的时间敏感性，如果兴趣点的时间敏感性为15分钟，这意味着这个兴趣点需要在15分钟内被无人机所覆盖。
+
+	\item[(5)]
+	问题的优化目标
+
+	\qquad 为了切实保障人民群众生命财产安全，在规划无人机的飞行路径时，应该以实现对更多兴趣点的有效覆盖作为首要目标。
+	在实现以上目标的基础上，还需要考虑无人机的调度总成本和飞行距离等因素。在参考了大量有时间窗车辆路径问题
+	(Vehicle Routing Problems With Time Windows,VRPTW)后，把主要的优化函数目标概括为：有效覆盖率和准时覆盖率最大化、
+	救援成本最小化和无人机的飞行里程最小化，同时满足无人机不超重运输的目标。
+
+	\item[(6)]
+	约束条件
+	
+
+	\qquad 在VRPTW问题中，需要考虑车辆的载重、运输时间窗和运输完成后车辆必须返回基地等。而当VRPTW问题的主体变为无人机后，
+	还需要考虑无人机的续航里程等无人机特有的约束条件。
+
+	\item[(7)]
+	问题的求解算法
+
+
+	\qquad 本文在求解该问题时主要研究了两种算法，一种是改进的贪心算法，另一种是改进的遗传算法。在面对简单问题时，贪心算法
+	简单且得到解的速度较快，但当问题较为复杂时，遗传算法是解决该问题的较好选择。
+\end{itemize}
+
+\section{无人机紧急救援系统的主要工作流程}[Main workflow of UAV emergency rescue system]
+紧急救援系统的主要工作流程如\figref{fg202}所示：
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width = 1.0\textwidth]{fg2_process}
+	\caption{无人机紧急救援系统的主要工作流程}
+	\label{fg202}
 \end{figure}
 
-\subsection{R作图}
+\begin{itemize}
+	\item [(1)]基地在收到新的一批救援物资后，会对救援物资的质量、体积和其他重要信息进行登记造册，存储在基地的物资管理系统中，
+	以备查验和后续救援工作使用； 
+	\item [(2)]基地的调度中心对无人机的型号、剩余续航时间和载重等信息进行检查，然后根据这些信息，使用算法计算出无人机的最佳调度方案。
+	方案中包含无人机的路径规划、运输任务和飞行时间等关键信息；
+	\item [(3)]由人工或者智能机器人对无人机进行物资装载，装载完成后，无人机从基地的起降中心出发，开始执行任务；
+	\item [(4)]在任务执行过程中，无人机通过网络与基地进行通信，基地可以实时获取无人机的当前状态，同时无人机对拍摄的待救援地点状况进行回传；
+	\item [(5)]无人机完成任务后，会与基地调度中心进行确认，待基地确认后，无人机进行返航，本次运送任务结束，待充电完成后准备进行下一次救援任务。
+\end{itemize}
 
-R是一种极具有代表性的典型的作图工具，应用广泛。
-与Tikz图~\ref{tumor}~不同，R作图分两种情况：（1）可以转换为Tikz码；（2）不可转换为Tikz码。
-第一种情况图形简单，图形中不含有很多数据点，使用R语言中的Tikz包即可。
-第二种情况是图形复杂，含有海量数据点，这时候不要转成Tikz矢量图，这会使得论文体积巨大。
-推荐使用pdf或png非矢量图形。
-使用非矢量图形时要注意选择好字号（五号或小五），和字体（宋体、新罗马）然后选择生成图形大小，注意此时在正文中使用\cs{includegraphics}命令导入时，不要像导入矢量图那样控制图形大小，使用图形的原本的
-宽度和高度，这样就确保了非矢量图形中的文字与正文一致了。
+\section{问题模型的建立}[Establishment of Problem Model]
 
-为了控制\hitszthesis\ 的大小，此处不给出具体举例。
+\subsection{基地}[Base]
+在无人机紧急救援系统的问题模型中，基地使用$B$来表示。当上游救援物资到达基地时，$B$会记录救援物资的详细信息。
+基地$B$作为无人机的调度中心和维护中心，会根据获取的信息指挥无人机将物资运送到各个待救援地点。
+\subsection{待救援地点（兴趣点）}[POI]
+我们将待救援地点统称为兴趣点，在本问题中，无人机到兴趣点之间的距离与其时间敏感程度无明显关系，因此在设计算法时应该有效协调距离和时间敏感性之间的关系，
+并据此对于无人机的路径规划进行决策。假设有$n$个兴趣点，用$P=\lbrace p_1, p_2, \cdots ,p_n \rbrace$进行表示。
+这些兴趣点在目标区域内的分布是随机的，位置已知，且为静态。由于不同的兴趣点其紧急情况不同，它们都有自身的时间
+敏感性$T_s=\lbrace ts_1, ts_2, \cdots ,ts_n \rbrace$。我们考虑现实中的实际情况，这些兴趣点可能也会允许无人机在
+超时一定时间内到达，也将其视为成功救援，所以我们设置一个公差系数$e$，认为无人机在$(1+e) \cdot t_si$时间内对兴趣点$p_i$进行了救援，即视为救援成功。
+\subsection{救援物资}[Relief materials]
+（后面写完了再补充，主要是重量有关，体积可以忽略掉）
+\subsection{无人机}[UAV]
+基地$B$中停放有$m$架型号相同的无人机，这些无人机用$U=\lbrace u_1, u_2, \cdots ,u_m \rbrace$进行表示，且它们拥有
+相同的飞行速度$v$、最大载重$w$、最大续航时间$t$等基础参数（这里写完了记得回来改一下细节）。
 
-\subsection{专业绘图工具}[Processional drawing tool]
-\label{drawtool}
 
-推荐使用tikz包，使用tikz源码绘图的好处是，图片中的字体与正文中的字体一致。具体如
-何使用tikz绘图不属于模板范畴。
+为了研究的方便，本文在使用无人机执行紧急救援任务时，还对模型进行了适当简化：
+\begin{itemize}
+	\item [(1)] 无人机以固定速度$v$进行直线飞行，不考虑外界自然条件以及无人机状况对速度的影响；
+ 	\item [(2)] 不考虑救援物资的体积，只对无人机的载重进行考虑；
+  	\item [(3)] 不考虑无人机在起飞和降落过程中对于电量的消耗和花费的时间；
+    \item [(4)] 后续再进行补充
+\end{itemize}
+\subsection{对问题模型的概述}[Overview of problem model]
+（后面写完了再进行补充，主要为了准确性）
 
-tikz适合用来画不需要大量实验数据支撑示意图。但R语言等专业绘图工具具有画出各种、
-专业、复杂的数据图。R语言中有tikz包，能自动生成tikz码，这样tikz几乎无所不能。
-对于排版有极致追求的小伙伴，可以参考
-\href{http://www.texample.net/tikz/resources/}{http://www.texample.net/tikz/resources/}
-中所列工具，几乎所有作图软件所作的图形都可转成tikz，然后可以自由的在tikz中修改
-图中内容，定义字体等等。实现前文窝工规范中要求的图中字体的一致性的终极目标。
-
-\lipsum[1]
-
+\section{评价指标}[Evaluating indicator]
+(主要是有效覆盖率和准时覆盖率之间的区别，后面再补充)
 \section{本章小结}[Brief summary]
+本章主要建立了无人机紧急救援系统的模型，提出了一套无人机救援任务调度方案，并对整个系统的设计方案和工作流程进行了介绍。
+接下来，依次对该系统中的模型进行了介绍，并使用数学符号表示了相关元素，并用数学方式表示了问题中的目标函数和约束等。
 
-\lipsum[1]

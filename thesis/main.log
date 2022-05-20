@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.30)  7 MAY 2022 11:01
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.4.30)  20 MAY 2022 17:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1692,328 +1692,126 @@ LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 75.
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 (Font)              scaled to size 9.03374pt on input line 75.
  [1
 
 
 
 
-] [2
+] (./front/denotation.tex [2
 
 
-] (./main.toc [3
+]
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 10.53937pt on input line 7.
+
+
+LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
+(Font)              size <10.95> substituted on input line 9.
+
+) [3
+
+
+] (./main.toc [4
 
 
 ])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [4] (./body/chapter01.tex
+ [5] (./body/chapter01.tex
 第1章
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 14.05249pt on input line 20.
-) (./body/chapter02.tex [1
+(Font)              scaled to size 14.05249pt on input line 32.
+[1
 
 
 
-]
+] [2] [3] [4]) (./body/chapter02.tex [5]
 第2章
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 24.
+File: figures//fg1_timesensitive.png Graphic file (type bmp)
+<figures//fg1_timesensitive.png>
+[6
 
-LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 24.
 
-[2
+] [7]
+File: figures//fg2_process.png Graphic file (type bmp)
+<figures//fg2_process.png>
+ [8] [9]) (./body/chapter03.tex [10]
+第3章
+[11
 
 
 ]
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
- [3]
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-
-Underfull \hbox (badness 10000) in paragraph at lines 68--68
-[]\TU/texgyretermes(0)/m/n/10.53937 Fig.$$ 2-4 The person playing golf.
- []
-
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--83
-[]\TU/texgyretermes(0)/m/n/10.53937 Fig.$$ 2-6 The person playing golf.
- []
-
-
-Underfull \hbox (badness 2990) in paragraph at lines 83--83
-\TU/texgyretermes(0)/m/n/10.53937 Please note that, it is vertically top
- []
-
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--92
-[]\TU/texgyretermes(0)/m/n/10.53937 Fig.$$ 2-7 The person playing golf.
- []
-
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-
-Package fontspec Info: Could not resolve font "FangSong/I" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Could not resolve font "FangSong/I" (it probably
-(fontspec)             doesn't exist).
-
-
-Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
-(fontspec)             with options [Script={CJK},AutoFakeBold={2}].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"FangSong/OT:script=hani;language=dflt;embolden=2;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
-
-[4] [5]
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
+(Font)              scaled to size 12.045pt on input line 37.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 10.53937pt on input line 174.
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
-File: figures//golfer.eps Graphic file (type eps)
-<figures//golfer.eps>
- [6]
-
-LaTeX Warning: Text page 7 contains only floats.
-
-[7] [8] [9]
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-Missing character: There is no ; ("3B) in font nullfont!
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/sc' will be
-(Font)              scaled to size 12.045pt on input line 267.
-[10
-
-] [11]) (./body/chapter03.tex [12]
-第3章
-Package hyperref Info: bookmark level for unknown equation defaults to 0 on input line 19.
+(Font)              scaled to size 7.52812pt on input line 45.
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
+(Font)              scaled to size 8.36461pt on input line 45.
+) (./body/chapter04.tex [12]
+第4章
 [13
 
 
-]) (./body/chapter04.tex [14]
-第4章
-[15
-
-
-] [16]
-Underfull \hbox (badness 3179) in paragraph at lines 118--118
-[]|\TU/texgyretermes(0)/m/n/10.53937 deuce-ace, leash, set, tercet, ternary, ternion,
- []
-
-[17]) (./body/chapter05.tex [18] [19]
+] [14]
+File: figures//fg3_jiaocha.png Graphic file (type bmp)
+<figures//fg3_jiaocha.png>
+File: figures//fg4_bianyi.png Graphic file (type bmp)
+<figures//fg4_bianyi.png>
+ [15] [16]) (./body/chapter05.tex [17]
 第5章
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/b/n' will be
-(Font)              scaled to size 8.0pt on input line 13.
+File: figures//fg0_bg.png Graphic file (type bmp)
+<figures//fg0_bg.png>
 
-Package natbib Warning: Citation `ren2010' on page 20 undefined on input line 13.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Package natbib Warning: Citation `Gravagne2003' on page 20 undefined on input line 16.
-
-
-Package natbib Warning: Citation `ren2010' on page 20 undefined on input line 16.
+File: figures//fg0_bg.png Graphic file (type bmp)
+<figures//fg0_bg.png>
+[18
 
 
-Package natbib Warning: Citation `Gravagne2003' on page 20 undefined on input line 17.
+]
+File: figures//fg0_bg.png Graphic file (type bmp)
+<figures//fg0_bg.png>
 
 
-Package natbib Warning: Citation `ren2010' on page 20 undefined on input line 17.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Package natbib Warning: Citation `Gravagne2003' on page 20 undefined on input line 20.
-
-
-Package natbib Warning: Citation `Gravagne2003' on page 20 undefined on input line 21.
-
-
-Package natbib Warning: Citation `webster2010' on page 20 undefined on input line 23.
-
-
-Package natbib Warning: Citation `liu2016' on page 20 undefined on input line 25.
-
-
-Package natbib Warning: Citation `fu2018' on page 20 undefined on input line 25.
-
-
-Package natbib Warning: Citation `zhai2015' on page 20 undefined on input line 25.
-
-
-Package natbib Warning: Citation `yao2015' on page 20 undefined on input line 25.
-
-
-Package natbib Warning: Citation `jones2006' on page 20 undefined on input line 25.
-
-
-Package natbib Warning: Citation `mcmahan2005' on page 20 undefined on input line 25.
-
-
-Package natbib Warning: Citation `jones2004' on page 20 undefined on input line 25.
-
-) [20
-
-
-] (./body/chapter06.tex [21]
+[19]) (./body/chapter06.tex [20]
 第6章
-LaTeX Font Info:    Trying to load font information for OMS+texgyretermes(0) on input line 9.
-LaTeX Font Info:    No file OMStexgyretermes(0).fd. on input line 9.
-
-LaTeX Font Warning: Font shape `OMS/texgyretermes(0)/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead on input line 9.
-
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
-(Font)              scaled to size 6.52437pt on input line 9.
-[22
+[21
 
 
 ]
 
-Package natbib Warning: Citation `ren2010' on page 23 undefined on input line 39.
+LaTeX Warning: Reference `fg601' on page 22 undefined on input line 39.
 
-Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 39.
-Package hyperref Info: bookmark level for unknown definition defaults to 0 on input line 42.
-Package hyperref Info: bookmark level for unknown assumption defaults to 0 on input line 46.
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 49.
-Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 52.
-Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 55.
-Package hyperref Info: bookmark level for unknown problem defaults to 0 on input line 57.
-Package hyperref Info: bookmark level for unknown remark defaults to 0 on input line 61.
-Package hyperref Info: bookmark level for unknown axiom defaults to 0 on input line 63.
-Package hyperref Info: bookmark level for unknown conjecture defaults to 0 on input line 67.
-[23] [24]) [25] (./back/conclusion.tex)
+File: figures//fg5_bs.png Graphic file (type bmp)
+<figures//fg5_bs.png>
+[22]) [23] (./back/conclusion.tex)
 No file main.bbl.
-[26
+[24
 
 
 
 ]
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
 (Font)              scaled to size 15.95961pt on input line 121.
- (./back/acknowledgements.tex [27
+ (./back/acknowledgements.tex [25
 
-
-
-]) (./back/appendix01.tex [28
 
 
 ]
-附录 A
-[29
-
-
-]) (./back/appendix02.tex [30]
-附录 B
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 12.045pt on input line 10.
-\c@currmpdefctr=\count497
-\c@endmpdefctr=\count498
-\c@mpdef=\count499
-Package hyperref Info: bookmark level for unknown mpdef defaults to 0 on input line 39.
-\c@currmpdefopctr=\count500
-\c@endmpdefopctr=\count501
-Package hyperref Info: bookmark level for unknown mpdefop defaults to 0 on input line 51.
-[31
-
-
-]
-Missing character: There is no ’ ("2019) in font cmr10!
-Missing character: There is no ’ ("2019) in font cmr10!
+LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 10.
 LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/sc' will be
-(Font)              scaled to size 10.53937pt on input line 128.
-[32] [33]
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/sl' in size <12.045> not available
-(Font)              Font shape `TU/texgyretermes(0)/m/it' tried instead on input line 173.
-LaTeX Font Info:    Font shape `TU/texgyretermes(0)/m/it' will be
-(Font)              scaled to size 12.045pt on input line 173.
-) (./back/appendix03.tex [34]
-附录 C
+(Font)              scaled to size 12.045pt on input line 10.
 )
 \tf@thm=\write7
 \openout7 = `main.thm'.
 
-
-
-Package natbib Warning: There were undefined citations.
-
-[35
+ [26
 
 
 ] (./main.aux)
@@ -2024,16 +1822,28 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 33D11C4433CBB93E59F1E2CB8C6129A6;8256.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: D50EF49610F177CFDB03D080EC4A644C;7201
+(rerunfilecheck)             After:  31E4A43B4B3B2192F4DBCE603E76CDE1;8443.
  ) 
 Here is how much of TeX's memory you used:
- 46628 strings out of 476179
- 985068 string characters out of 5813072
- 1422943 words of memory out of 5000000
- 66433 multiletter control sequences out of 15000+600000
- 522596 words of font info for 219 fonts, out of 8000000 for 9000
+ 44668 strings out of 476179
+ 939409 string characters out of 5813072
+ 1365508 words of memory out of 5000000
+ 64515 multiletter control sequences out of 15000+600000
+ 517755 words of font info for 197 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 106i,13n,136p,2527b,2270s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 106i,15n,136p,2527b,909s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (41 pages).
+Output written on main.pdf (33 pages).
