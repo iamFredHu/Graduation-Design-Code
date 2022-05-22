@@ -29,8 +29,9 @@ $100$，即在初始化过程中会产生$100$条符合要求的染色体。
 \subsection{适应度函数设计}[Design of fitness function]
 使用自然数对染色体进行编码，可以保证无人机的飞行路径较为清晰，但是不能确保在进化过程中产生的新路径能够一定满足不超重和尽可能少超时，所以为了确保进化过程中能产生最优解，我们需要引入一个惩罚函数，
 对不合理的路径规划结果进行惩罚：
-$$ f= \alpha d_s + \beta m_s + \gamma w_s $$
-
+\begin{equation}
+	f= \alpha d_s + \beta m_s + \gamma w_s
+\end{equation}
 
 其中，$d_s$是无人机的飞行距离之和，$m_s$是所有子路径中无人机的超重数量之和，$w_s$是所有子路径中无人机超出时间窗之和。而$\alpha,\beta,\gamma$是系数，根据各参数的重要性，将这些参数设置为
 $\alpha = 1,\beta = 10,\gamma = 100$。
@@ -40,14 +41,17 @@ $\alpha = 1,\beta = 10,\gamma = 100$。
 
 
 所有子路径中无人机超出时间窗之和$w_s$用以下公式表示：
-$$ w_s = \sum_{i=1}^n max\left\{\Delta t_i,0\right\}$$
-
+\begin{equation}
+w_s = \sum_{i=1}^n max\left\{\Delta t_i,0\right\}
+\end{equation}
 
 其中，$\Delta t_i$代表无人机从起飞到访问兴趣点$p_i$所花费的时间与该兴趣点的时间窗$ts_i$之差。
 
 
 为了衡量个体的适应度，将适应度函数$F$设置为惩罚函数$f$的倒数：
-$$ F = \frac{1}{f}$$
+\begin{equation} 
+	F = \frac{1}{f}
+\end{equation}
 
 \subsection{对个体的择优}[Individual preference]
 为了更好地模拟孟德尔豌豆实验，在算法中加入了对优秀个体自花授粉的过程。将初始化种群中的100个个体按照适应度大小进行排序，选择其前
@@ -57,15 +61,21 @@ $5\%$的的染色体进行自交，而其余的染色体则进入选择阶段。
 \subsection{选择过程}[selection process]
 采用轮盘赌算法进行个体的选择。轮盘赌算法是一种回放式的随机采样方法，个体进入下一代的概率就是其适应度与整个种群个体适应度之和的比值，适应度的值越大，个体被选中的概率也就越大。
 但是，传统轮盘赌算法误差较大，部分个体容易被多次选出，可能会削弱种群的规模和降低种群多样性，导致最终陷入局部最优解。为了避免这种情况，本文对轮盘赌算法进行了一些改进：
-$$ F_i' = F_i - F_{min} $$
+\begin{equation} 
+	F_i' = F_i - F_{min} 
+\end{equation}
 
 
 其中，$F_i$是第$i$个个体的适应度，$F_{min}$是所有个体中适应度的最小值，其计算方法如下：
-$$ F_{min} = min\left\{F\right\} $$
+\begin{equation}
+	F_{min} = min\left\{F\right\} 
+\end{equation}
 
 
 最后，可以计算出第$i$条染色体被选择的概率为：
-$$ P(i) = \frac{F_i}{\sum F_i'} $$
+\begin{equation}
+	P(i) = \frac{F_i}{\sum F_i'} 
+\end{equation}
 
 \subsection{交叉操作}[Crossover operation]
 在遗传算法中，交叉操作是指满足交叉概率$p_c$两个相互配对的染色体交换部分基因，形成新的个体。常用的交叉方式有单点交叉、两点交叉、多点交叉和均匀交叉等。由于该问题的特殊性，所有存在无人机超重情况的规划路径都
@@ -96,21 +106,14 @@ $$ P(i) = \frac{F_i}{\sum F_i'} $$
 \subsection{对基因的多轮筛选}[Multiple rounds of gene screening]
 在种群初始化、交叉算子和变异算子后，选择对各条路径的载重约束进行检查。如果发现有个体对应的路径存在无人机超重配送的情况，应该对染色体予以删除，以符合无人机的飞行安全要求。
 
-\section{算法的伪代码}[Pseudocode of the algorithm]
-\begin{algorithm}[H]
-\caption{改进的遗传算法}
-\LinesNumbered %要求显示行号
-\KwIn{\rm video \ \it X,\ \rm hole \ \it H,\ \rm validity \ \it V \\}
-\KwOut{\rm complection \ video \it Y \\ }
-\For{condition}{
-	only if\;
-	\If{condition}{
-		1\;
-	}
-}
-\end{algorithm}
+\section{算法的流程图}[Pseudocode of the algorithm]
+\begin{figure}[H]
+	\centering
+	\includegraphics[width = 1.0\textwidth]{fg6_ga}
+	\caption{改进的遗传算法流程图}
+	\label{fg403}
+\end{figure}
 
-\section{算法的复杂度分析}[Complexity Analysis of Algorithm]
 
 \section{算法的改进}[Improved algorithms]
 与传统的遗传算法相比，本文提出的算法有以下改进点：

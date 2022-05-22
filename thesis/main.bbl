@@ -1,0 +1,169 @@
+\begin{thebibliography}{10}
+\providecommand{\bibauthor}[1]{#1}
+\providecommand{\bibeditor}[1]{#1}
+\providecommand{\bibtranslator}[1]{#1}
+\providecommand{\bibtitle}[1]{#1}
+\providecommand{\bibbooktitle}[1]{#1}
+\providecommand{\bibjournal}[1]{#1}
+\providecommand{\bibmark}[1]{\mbox{#1}}
+\providecommand{\bibcountry}[1]{#1}
+\providecommand{\bibpatentid}[1]{#1}
+\providecommand{\bibedition}[1]{#1}
+\providecommand{\biborganization}[1]{#1}
+\providecommand{\bibaddress}[1]{#1}
+\providecommand{\bibpublisher}[1]{#1}
+\providecommand{\bibinstitution}[1]{#1}
+\providecommand{\bibschool}[1]{#1}
+\providecommand{\bibvolume}[1]{#1}
+\providecommand{\bibnumber}[1]{#1}
+\providecommand{\bibversion}[1]{#1}
+\providecommand{\bibpages}[1]{#1}
+\providecommand{\bibmodifydate}[1]{#1}
+\providecommand{\bibcitedate}[1]{#1}
+\providecommand{\bibyear}[1]{#1}
+\providecommand{\bibdate}[1]{#1}
+\providecommand{\biburl}[1]{\newline\url{#1}}
+
+\bibitem{ziranzaihaifangzhide}
+\bibauthor{武艳敏}\@.
+  \bibtitle{自然灾害防治的百年历程与经验}\bibmark{\,［J］}\@.
+  \bibjournal{人民论坛}\@，\bibyear{2021}\thinspace{}\textnormal{：}\bibpages{38\textnormal{-}41}\@.
+
+\bibitem{yuqingqing}
+\bibauthor{俞青青\@，邢更力}\@.
+  \bibtitle{我国无人机在应急救援中的应用与发展}\bibmark{\,［J］}\@.
+  \bibjournal{职业卫生与应急救援}\@，\bibyear{2021}\@，\bibvolume{39}\bibnumber{（3）\!\!}\thinspace{}\textnormal{：}\bibpages{350\textnormal{-}355}\@.
+
+\bibitem{liuyajing}
+\bibauthor{刘亚京\@，吕文红\@，王国娟，等}\@.
+  \bibtitle{末端无人机物流路径规划研究综述}\bibmark{\,［J］}\@.
+  \bibjournal{物流技术}\@，\bibyear{2019}\@，\bibvolume{6}\@.
+
+\bibitem{zhanghonghai}
+\bibauthor{张洪海\@，张连东\@，刘皞，等}\@.
+  \bibtitle{城市低空物流无人机航迹规划模型研究}\bibmark{\,［J］}\@.
+  \bibjournal{交通运输系统工程与信息}\@，\bibyear{2022}\@，\bibvolume{22}\bibnumber{（1）\!\!}\thinspace{}\textnormal{：}\bibpages{256}\@.
+
+\bibitem{renxuan}
+\bibauthor{任璇\@，黄辉\@，于少伟，等}\@.
+  \bibtitle{车辆与无人机组合配送研究综述}\bibmark{\,［J］}\@.
+  \bibjournal{控制与决策}\@，\bibyear{2021}\@，\bibvolume{36}\bibnumber{（10）\!\!}\thinspace{}\textnormal{：}\bibpages{2313\textnormal{-}2327}\@.
+
+\bibitem{2008Sweep}
+\bibauthor{CHENG W\@，LI M\@，LIU K，et~al}\@. \bibtitle{Sweep Coverage with
+  Mobile Sensors}\bibmark{\,［C］} //\thinspace{}\bibbooktitle{Parallel and
+  Distributed Processing, 2008. IPDPS 2008. IEEE International Symposium
+  on}\@，\bibaddress{［S.l.］}\@，\bibyear{2008}\@.
+
+\bibitem{2015Shorten}
+\bibauthor{FENG Y\@，GAO X\@，FAN W，et~al}\@. \bibtitle{Shorten the
+  Trajectory of Mobile Sensors in Sweep Coverage Problem}\bibmark{\,［C］}
+  //\thinspace{}\bibbooktitle{IEEE Global Communications
+  Conference}\@，\bibaddress{［S.l.］}\@，\bibyear{2015}\@.
+
+\bibitem{2012zhao}
+\bibauthor{ZHAO D\@，MA H\@，LIU L}\@. \bibtitle{[IEEE 2012 IEEE Wireless
+  Communications and Networking Conference (WCNC) - Paris, France
+  (2012.04.1-2012.04.4)] 2012 IEEE Wireless Communications and Networking
+  Conference (WCNC) - Mobile sensor scheduling for timely sweep
+  coverage}\bibmark{\,［J］}\@，\bibyear{2012}\@.
+
+\bibitem{bektas2006multiple}
+\bibauthor{BEKTAS T}\@. \bibtitle{The multiple traveling salesman problem: an
+  overview of formulations and solution procedures}\bibmark{\,［J］}\@.
+  \bibjournal{omega}\@，\bibyear{2006}\@，\bibvolume{34}\bibnumber{（3）\!\!}\thinspace{}\textnormal{：}\bibpages{209\textnormal{-}219}\@.
+
+\bibitem{lenstra1981complexity}
+\bibauthor{LENSTRA J~K\@，KAN A~R}\@. \bibtitle{Complexity of vehicle routing
+  and scheduling problems}\bibmark{\,［J］}\@.
+  \bibjournal{Networks}\@，\bibyear{1981}\@，\bibvolume{11}\bibnumber{（2）\!\!}\thinspace{}\textnormal{：}\bibpages{221\textnormal{-}227}\@.
+
+\bibitem{pan2021multi}
+\bibauthor{PAN B\@，ZHANG Z\@，LIM A}\@. \bibtitle{Multi-trip time-dependent
+  vehicle routing problem with time windows}\bibmark{\,［J］}\@.
+  \bibjournal{European Journal of Operational
+  Research}\@，\bibyear{2021}\@，\bibvolume{291}\bibnumber{（1）\!\!}\thinspace{}\textnormal{：}\bibpages{218\textnormal{-}231}\@.
+
+\bibitem{saint2021time}
+\bibauthor{SAINT-GUILLAIN M\@，PAQUAY C\@，LIMBOURG S}\@.
+  \bibtitle{Time-dependent stochastic vehicle routing problem with random
+  requests: Application to online police patrol management in
+  Brussels}\bibmark{\,［J］}\@. \bibjournal{European Journal of Operational
+  Research}\@，\bibyear{2021}\@，\bibvolume{292}\bibnumber{（3）\!\!}\thinspace{}\textnormal{：}\bibpages{869\textnormal{-}885}\@.
+
+\bibitem{euchi2021hybrid}
+\bibauthor{EUCHI J\@，SADOK A}\@. \bibtitle{Hybrid genetic-sweep algorithm to
+  solve the vehicle routing problem with drones}\bibmark{\,［J］}\@.
+  \bibjournal{Physical
+  Communication}\@，\bibyear{2021}\@，\bibvolume{44}\thinspace{}\textnormal{：}\bibpages{101236}\@.
+
+\bibitem{fan2021time}
+\bibauthor{FAN H\@，ZHANG Y\@，TIAN P，et~al}\@. \bibtitle{Time-dependent
+  multi-depot green vehicle routing problem with time windows considering
+  temporal-spatial distance}\bibmark{\,［J］}\@. \bibjournal{Computers \&
+  Operations
+  Research}\@，\bibyear{2021}\@，\bibvolume{129}\thinspace{}\textnormal{：}\bibpages{105211}\@.
+
+\bibitem{ren2022vehicle}
+\bibauthor{REN H}\@. \bibtitle{Vehicle Routing Optimization of Logistics
+  Distribution based on Genetic Algorithm (VRPTW)}\bibmark{\,［J］}\@.
+  \bibjournal{Frontiers in Economics and
+  Management}\@，\bibyear{2022}\@，\bibvolume{3}\bibnumber{（1）\!\!}\thinspace{}\textnormal{：}\bibpages{294\textnormal{-}299}\@.
+
+\bibitem{lee2021simulated}
+\bibauthor{LEE J\@，PERKINS D}\@. \bibtitle{A simulated annealing algorithm
+  with a dual perturbation method for clustering}\bibmark{\,［J］}\@.
+  \bibjournal{Pattern
+  Recognition}\@，\bibyear{2021}\@，\bibvolume{112}\thinspace{}\textnormal{：}\bibpages{107713}\@.
+
+\bibitem{wu2021hybrid}
+\bibauthor{WU H\@，GAO Y\@，WANG W，et~al}\@. \bibtitle{A hybrid ant colony
+  algorithm based on multiple strategies for the vehicle routing problem with
+  time windows}\bibmark{\,［J］}\@. \bibjournal{Complex \& Intelligent
+  Systems}\@，\bibyear{2021}\thinspace{}\textnormal{：}\bibpages{1\textnormal{-}18}\@.
+
+\bibitem{ilhan2021improved}
+\bibauthor{{\.I}LHAN {I}}\@. \bibtitle{An improved simulated annealing
+  algorithm with crossover operator for capacitated vehicle routing
+  problem}\bibmark{\,［J］}\@. \bibjournal{Swarm and Evolutionary
+  Computation}\@，\bibyear{2021}\@，\bibvolume{64}\thinspace{}\textnormal{：}\bibpages{100911}\@.
+
+\bibitem{2019Energy}
+\bibauthor{CHOI Y\@，CHOI Y\@，BRICENO S，et~al}\@.
+  \bibtitle{Energy-Constrained Multi-UAV Coverage Path Planning for an Aerial
+  Imagery Mission Using Column Generation}\bibmark{\,［J］}\@.
+  \bibjournal{Journal of Intelligent and Robotic Systems}\@，\bibyear{2019}\@.
+
+\bibitem{2020A}
+\bibauthor{LI J\@，XIONG Y\@，SHE J，et~al}\@. \bibtitle{A Path Planning
+  Method for Sweep Coverage With Multiple UAVs}\bibmark{\,［J］}\@.
+  \bibjournal{IEEE Internet of Things
+  Journal}\@，\bibyear{2020}\@，\bibvolume{PP}\bibnumber{（99）\!\!}\thinspace{}\textnormal{：}\bibpages{1\textnormal{-}1}\@.
+
+\bibitem{thibbotuwawa2020unmanned}
+\bibauthor{THIBBOTUWAWA A\@，BOCEWICZ G\@，NIELSEN P，et~al}\@.
+  \bibtitle{Unmanned aerial vehicle routing problems: a literature
+  review}\bibmark{\,［J］}\@. \bibjournal{Applied
+  sciences}\@，\bibyear{2020}\@，\bibvolume{10}\bibnumber{（13）\!\!}\thinspace{}\textnormal{：}\bibpages{4504}\@.
+
+\bibitem{jin2017}
+\bibauthor{金伽忆\@，朱烨\@，曾舒婷，等}\@.
+  \bibtitle{小型多旋翼无人机续航问题研究}\bibmark{\,［J］}\@.
+  \bibjournal{电脑知识与技术：学术版}\@，\bibyear{2017}\@，\bibvolume{13}\bibnumber{（6）\!\!}\thinspace{}\textnormal{：}\bibpages{3}\@.
+
+\bibitem{chenhao2019}
+\bibauthor{陈昊\@，沈景凤\@，赵程}\@.
+  \bibtitle{无人机在抢险救灾中的优化应用}\bibmark{\,［J］}\@.
+  \bibjournal{电子科技}\@，\bibyear{2019}\@，\bibvolume{32}\bibnumber{（9）\!\!}\thinspace{}\textnormal{：}\bibpages{6}\@.
+
+\bibitem{shu2020}
+\bibauthor{舒振杰\@，张泽京}\@.
+  \bibtitle{我国民用无人机管理法规与标准建设}\bibmark{\,［J］}\@.
+  \bibjournal{中国减灾}\@，\bibyear{2020}\@.
+
+\bibitem{liuping2016}
+\bibauthor{刘平}\@.
+  \bibtitle{无人机送快递,助推物流业“智慧转型”}\bibmark{\,［J］}\@.
+  \bibjournal{金融经济}\@，\bibyear{2016}\@.
+
+\end{thebibliography}

@@ -38,6 +38,13 @@
 % 图形和表格的控制旋转
 \RequirePackage{rotating}
 
+% 禁止浮动
+\usepackage{float}
+
+% 图片
+\usepackage{graphicx}
+\usepackage{pgfplots}
+
 % 输出无意义文字
 \RequirePackage{lipsum}
 
@@ -461,5 +468,3 @@
 \def\cmd@to@cs#1#2{\char\number`#2\relax}
 \DeclareRobustCommand\cs[1]{\texttt{\char`\\#1}}
 \endinput
-
-

@@ -1,0 +1,103 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=latex 2022.4.30)  22 MAY 2022 16:50
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**hitszthesis.ins
+(./hitszthesis.ins
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24>
+(c:/texlive/2022/texmf-dist/tex/latex/base/docstrip.tex
+\blockLevel=\count185
+\emptyLines=\count186
+\processedLines=\count187
+\commentsRemoved=\count188
+\commentsPassed=\count189
+\codeLinesPassed=\count190
+\TotalprocessedLines=\count191
+\TotalcommentsRemoved=\count192
+\TotalcommentsPassed=\count193
+\TotalcodeLinesPassed=\count194
+\NumberOfFiles=\count195
+\inFile=\read2
+\inputcheck=\read3
+\off@0=\count196
+\off@1=\count197
+\off@2=\count198
+\off@3=\count199
+\off@4=\count266
+\off@5=\count267
+\off@6=\count268
+\off@7=\count269
+\off@8=\count270
+\off@9=\count271
+\off@10=\count272
+\off@11=\count273
+\off@12=\count274
+\off@13=\count275
+\off@14=\count276
+\off@15=\count277
+\@maxfiles=\count278
+\@maxoutfiles=\count279
+
+Utility: `docstrip' v2.6a <2020-11-23>
+English documentation    <2020-11-23>
+
+**********************************************************
+* This program converts documented macro-files into fast *
+* loadable files by stripping off (nearly) all comments! *
+**********************************************************
+
+********************************************************
+* No Configuration file found, using default settings. *
+********************************************************
+
+)
+
+Generating file(s) ./hitszthesis.cls ./hitszthesis.cfg ./hitszthesis.ist ./dtx-
+style.sty 
+\openout0 = `./hitszthesis.cls'.
+
+\openout1 = `./hitszthesis.cfg'.
+
+\openout2 = `./hitszthesis.ist'.
+
+\openout3 = `./dtx-style.sty'.
+
+
+Processing file hitszthesis.dtx (cls) -> hitszthesis.cls
+                                (cfg) -> hitszthesis.cfg
+                                (ist) -> hitszthesis.ist
+                                (dtx-style) -> dtx-style.sty
+File hitszthesis.dtx ended by \endinput.
+Lines  processed: 3464
+Comments removed: 1661
+Comments  passed: 0
+Codelines passed: 1750
+
+***********************************************************
+*
+* To finish the installation you have to move the following
+* files into a directory searched by TeX:
+*
+* The recommended directory is TEXMF/tex/latex/hitszthesis
+*
+*   hitszthesis.cls
+*   hitszthesis.cfg
+*   hitszthesis.ist
+*
+* To produce the documentation run the files ending with
+* `.dtx' through LaTeX.
+*
+* Happy TeXing!
+***********************************************************
+ ) 
+Here is how much of TeX's memory you used:
+ 361 strings out of 478269
+ 3954 string characters out of 5850371
+ 300105 words of memory out of 5000000
+ 18661 multiletter control sequences out of 15000+600000
+ 469259 words of font info for 28 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 13i,0n,15p,581b,154s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+No pages of output.

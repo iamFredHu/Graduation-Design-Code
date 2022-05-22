@@ -15,9 +15,12 @@
 
 
 然后，我们设计了一个成本函数来评估无人机访问$p_i$的成本：
-$$ \varphi = \frac{T_k}{T_{max}}$$
-$$ C_i = \alpha t_i + \beta (ts_i - T_k)^\varphi + \gamma m_i $$
-
+\begin{equation}
+	\varphi = \frac{T_k}{T_{max}}
+\end{equation}
+\begin{equation}
+	C_i = \alpha t_i + \beta (ts_i - T_k)^\varphi + \gamma m_i
+\end{equation}
 
 系数$\alpha$反映当前无人机的扫描覆盖任务完成进度。$(ts_i - T_k)$表示兴趣点$p_i$的剩余访问时间，扫描覆盖任务越接近结束，访问兴趣点的优先级越高，剩余的访问时间越短。$m_i$代表的是兴趣点$p_i$所需求的救援物资质量。
 $\alpha,\beta,\gamma$是系数，负责调节三个影响因素的权重。在成本函数中，距离当前位置近、剩余可访问时间短且载重要求低的兴趣点访问成本最低，将首先被访问。如果该兴趣点不可访问，则会将$C_i$设置为$+\infty$。计算完所有兴趣点
@@ -31,24 +34,53 @@ $\alpha,\beta,\gamma$是系数，负责调节三个影响因素的权重。在�
 最后，在全部$m$架无人机的路径都被规划完成后，根据第二章中提到的公式计算有效覆盖率$R_e$和准时覆盖率$R_o$，算法结束。
 
 \section{算法的伪代码}[Pseudocode of the algorithm]
-\begin{algorithm}[H]
-\caption{改进的贪心算法}
-\LinesNumbered %要求显示行号
-\KwIn{\rm video \ \it X,\ \rm hole \ \it H,\ \rm validity \ \it V \\}
-\KwOut{\rm complection \ video \it Y \\ }
-\For{condition}{
-	only if\;
-	\If{condition}{
-		1\;
+ 
+\begin{algorithm}[H]  %其中这里面不能有H不然会报错，不过不影响结果
+	\caption{改进的贪心算法}%算法名字
+	\LinesNumbered %要求显示行号
+	\KwIn{兴趣点的集合$P$，兴趣点对应时间敏感性的集合$T_s$，兴趣点对应的救援物质需求的集合$S$，无人机的集合$U$，基地$B$，无人机的最大续航时间$T_{max}$，无人机的飞行速度$v$，最大载重$w$。}%输入参数
+	\KwOut{无人机的飞行路径规划$O$，无人机的准时覆盖率$R_o$和有效覆盖率$R_e$}%输出
+	检查$T_s$的值是否符合要求\; %\;用于换行
+	\For{$k=1 \rightarrow m$}{
+		设置$O_k = \emptyset$、$T_k = 0$和无人机是否完成覆盖的标识符\;
+		\While{$P \ne \emptyset and B_0 \notin O_k $}{
+		\For{$p_i \in P$}{
+			计算无人机的直线飞行至下一个兴趣点的飞行时间$t_i$\;
+			\eIf{$\enspace T_k + t_i \le (1+e)\cdot ts_i \enspace and \enspace T_{max} - T_k \ge 0 \enspace and \enspace w \prime \le w \enspace$}{
+			$\varphi =  T_k / T_{max}$\;
+			$C_i = \alpha t_i + \beta (ts_i - T_k)^\varphi + \gamma m_i$\;
+		}{
+			$cost_i = +\infty$\;
+		}
+		}
+		选择cost最小的$p_j \in P$\;
+		\eIf{$p_j$存在}{
+			将$p_j$添加至$O_k$，将$p_j$从$P$中移除\;
+			$T_k = T_k + t_j$\;
+			判断兴趣点覆盖情况，设置相关标识符\;
+		}{
+			将$B$添加至$O_k$\;
+		}
+		
 	}
-}
+	计算无人机的准时覆盖率$R_o$和有效覆盖率$R_e$\;
+	return $O,R_o,R_e$
+	}
 \end{algorithm}
+
 
 \section{算法的复杂度分析}[Complexity Analysis of Algorithm]
 在本算法中，计算$P$中所有兴趣点的访问成本的部分复时间复杂度为$O(n)$，因为$P$有$n$个兴趣点。同样，将兴趣点添加到无人机的扫描路径的过程，其时间复杂度也为$O(n)$。最后，在规划$m$架无人就的扫描路径时，迭代次数为$m$，故
 本算法的时间复杂度为$O(mn^2)$。
 
 \section{算法的改进}[Improved algorithms]
+相比设计时参考的原算法，本算法主要有以下方面的改进：
+\begin{itemize}
+	\item [(1)] 代价函数重新调整了权重，无人机续航时间与兴趣点存活时间之间的关系对于无人机访问兴趣点的先后顺序的影响权重较大，所以提高了该项数据在代价函数中的优先级，
+	同时代价函数中加入了载重相关的因素，尽量防止无人机的路径规划中存在有无人机超重运输的情况；
+	\item [(2)] 优化了路径规划的顺序，同时考虑m架无人机访问兴趣点的代价，再进行线路的规划，可以提高无人机对于兴趣点的有效覆盖率和准时率；
+	\item [(3)] 在无人机返回基地之前，若还有空余续航时间，仍然会访问已超时的兴趣点，从而实现对兴趣点的全覆盖。
+\end{itemize}
 
 \section{本章小结}[Brief summary]
-在本章中，我们主要介绍了改进的贪心算法的基本思想和算法细节，同时对该算法的复杂性进行了分析。
+在本章中，我们主要介绍了使用贪心算法解决带时间窗的无人机扫描覆盖问题的基本思想和算法细节，并针对传统的贪心算法进行了改进，以更符合实际情况和提高算法性能，同时对该算法的复杂性进行了分析。
