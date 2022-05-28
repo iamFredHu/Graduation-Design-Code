@@ -37,25 +37,20 @@
 
 
 下表是部分物流无人机的参数信息。
-\begin{table}[h]
-  \begin{center}
-  \caption{部分物流无人机参数} 
-  \begin{tabular}{c|c|c|c}
-  \hline
-  \hline
-  公司 & 型号 & 最大载重 & 最大续航里程 \\
-  \hline
-  \hline
-  亚马逊 & Prime Air Drone & 2.5kg & 30km \\
-  \hline
-  顺 & Ark & 12kg & 20km \\
-  丰 & Manta Ray & 10kg & 100km \\
-  \hline
-  京东 & 京蜓 & 数百千克 & 未公布 \\ 
-  \hline
-  \end{tabular}
-  \end{center}
-  \end{table}
+  \begin{table}[htbp]
+    \vspace{0.5em}\centering\wuhao
+    \caption{部分物流无人机参数}
+    \begin{tabular}{cccc}
+    \toprule[1.5pt]
+    公司 & 型号 & 最大载重 & 最大续航里程 \\
+    \midrule[1.5pt]
+    亚马逊 & Prime Air Drone & 2.5kg & 30km \\
+    顺丰 & Ark & 12kg & 20km \\
+    顺丰 & Manta Ray & 10kg & 100km \\
+    京东 & 京蜓 & 数百千克 & 未公布 \\ 
+    \bottomrule[1.5pt]
+    \end{tabular}
+    \end{table}
 
 \subsection{无人机的路径规划问题研究现状}[Research state of UAV routing problems]
 扫描覆盖作为无线传感器网络（Wireless Sensor Networks, WSN）的一个新兴领域，近年来收到了广泛的关注。通常情况下，根据问题的最终优化目标，扫描覆盖问题可分为以下三个类型：
@@ -101,12 +96,12 @@
   带时间敏感性的无人机网络扫描覆盖问题的算法设计。
 
 
-  根据问题模型，设计了问题解的表达方式和初始解的产生方法。本文主要采用两种启发式算法——贪心算法和遗传算法进行实验和求解，并针对传统的贪心算法和遗传算法进行了改进。
+  根据问题模型，设计了问题解的表达方式和初始解的产生方法。本文主要采用两种启发式算法——带载重的贪婪成本选择算法和带自交的遗传算法进行实验和求解。
   \item [(3)]
   算法性能的评估与对比。
 
 
-  根据对实际场景的分析，设置了问题模拟中的场景参数和算法参数，对模型进行求解。得到结果后，还需要对实验结果进行分析，主要需要分析四种算法的可行性和性能优劣，验证通过改进后的算法能否得到求解问题模型的预期结果。
+  根据对实际场景的分析，设置了问题模拟中的场景参数和算法参数，对模型进行求解。得到结果后，还需要对实验结果进行分析，主要需要分析几种算法的可行性和性能优劣，验证通过改进后的算法能否得到求解问题模型的预期结果。
   \item [(4)]
   无人机紧急救援系统的模拟实现。
 

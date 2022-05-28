@@ -9,45 +9,45 @@ Database file #1: reference.bib
 Warning--Require address: 2008Sweep
 Warning--Require address: 2015Shorten
 Warning--Require journal: 2012zhao
-You've used 25 entries,
+You've used 27 entries,
             3189 wiz_defined-function locations,
-            865 strings with 10130 characters,
-and the built_in function-call counts, 38695 in all, are:
-= -- 4212
-> -- 85
-< -- 195
-+ -- 3495
-- -- 270
-* -- 1130
-:= -- 4486
+            879 strings with 10441 characters,
+and the built_in function-call counts, 42281 in all, are:
+= -- 4598
+> -- 92
+< -- 211
++ -- 3793
+- -- 296
+* -- 1232
+:= -- 4866
 add.period$ -- 0
-call.type$ -- 25
-change.case$ -- 120
+call.type$ -- 27
+change.case$ -- 130
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 5202
-empty$ -- 1387
-format.name$ -- 240
-if$ -- 10368
+cite$ -- 30
+duplicate$ -- 5718
+empty$ -- 1537
+format.name$ -- 260
+if$ -- 11313
 int.to.chr$ -- 0
-int.to.str$ -- 25
+int.to.str$ -- 27
 missing$ -- 0
-newline$ -- 102
-num.names$ -- 25
-pop$ -- 487
+newline$ -- 108
+num.names$ -- 27
+pop$ -- 547
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 404
+skip$ -- 436
 stack$ -- 0
-substring$ -- 4407
-swap$ -- 1111
+substring$ -- 4833
+swap$ -- 1223
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 499
-width$ -- 27
-write$ -- 361
+while$ -- 553
+width$ -- 29
+write$ -- 391
 (There were 3 warnings)

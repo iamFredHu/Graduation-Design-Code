@@ -105,8 +105,8 @@
   Research}\@，\bibyear{2021}\@，\bibvolume{129}\thinspace{}\textnormal{：}\bibpages{105211}\@.
 
 \bibitem{ren2022vehicle}
-\bibauthor{REN H}\@. \bibtitle{Vehicle Routing Optimization of Logistics
-  Distribution based on Genetic Algorithm (VRPTW)}\bibmark{\,［J］}\@.
+\bibauthor{REN H}\@. \bibtitle{Vehicle routing optimization of logistics
+  distribution based on genetic algorithm (VRPTW)}\bibmark{\,［J］}\@.
   \bibjournal{Frontiers in Economics and
   Management}\@，\bibyear{2022}\@，\bibvolume{3}\bibnumber{（1）\!\!}\thinspace{}\textnormal{：}\bibpages{294\textnormal{-}299}\@.
 
@@ -165,5 +165,16 @@
 \bibauthor{刘平}\@.
   \bibtitle{无人机送快递,助推物流业“智慧转型”}\bibmark{\,［J］}\@.
   \bibjournal{金融经济}\@，\bibyear{2016}\@.
+
+\bibitem{hayat2016survey}
+\bibauthor{HAYAT S\@，YANMAZ E\@，MUZAFFAR R}\@. \bibtitle{Survey on unmanned
+  aerial vehicle networks for civil applications: A communications
+  viewpoint}\bibmark{\,［J］}\@. \bibjournal{IEEE Communications Surveys \&
+  Tutorials}\@，\bibyear{2016}\@，\bibvolume{18}\bibnumber{（4）\!\!}\thinspace{}\textnormal{：}\bibpages{2624\textnormal{-}2661}\@.
+
+\bibitem{xumin2017}
+\bibauthor{徐珉\@，胡南}\@.
+  \bibtitle{基于蜂窝网络的无人机通信研究}\bibmark{\,［J］}\@.
+  \bibjournal{移动通信}\@，\bibyear{2017}\@，\bibvolume{41}\bibnumber{（22）\!\!}\thinspace{}\textnormal{：}\bibpages{23\textnormal{-}28}\@.
 
 \end{thebibliography}
