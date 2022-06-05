@@ -1,0 +1,183 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=line-in-cartesian-coordinate-system&code=PYBwLglsB2AEC8sDeAoWsAeBBDEDOAXMmurHgBbADuRAZgIYA2eApiQL4A0JAnjvkVSkylGrAbM26LiVYAnCC0KwA2iXRDhsACb0w9Imq2kVARgAMnWABZzAXW7H0KgKyXYF-46crbVgExe6lpmlrZ2wegOkbBgPCAsRADkjBDQLEnewng8ALYARsCMyWAK9NAA5owZWaQ5BUUAyhAAXomwgbXoEGAsuY1x1YIx6IVy2ixyAOoQ2mDkRADMXaRjE3IAwkXAcskAxACiBwBsp8eZI7AAxtu7sEk8LIyM1Ekx7MEywprCuvqGlxUnRsQScqjcVk80TBvncgWhPk64RiCOEcQSyVS6QuxnqhWK91KEHKVRqMTxTVa7U6MR6fQGPCGxDBa0mMzmC1gy0urM2t32RzO5xW6BuLzuSXyjAArhl3p9vBF2ABuIA
+	请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+    <meta charset="utf-8">
+    <title>无人机路径规划演示</title>
+    <style>
+   #backImg{
+    background: url("https://s1.ax1x.com/2022/06/03/XU2UBR.png");
+   }
+
+</style>
+</head>
+<body style="height: 100%; margin: 0">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">无人机紧急救援模拟系统（带载重的贪婪成本选择算法）</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/">主页</a></li>
+          <li><a href="/import">数据导入</a></li>
+          <li class="active"><a href="/show">结果展示<span class="sr-only">(current)</span></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">算法选择<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://127.0.0.1:5000/">带载重的贪婪成本选择算法</a></li>
+            <li><a href="http://127.0.0.1:5001/">带自交的遗传算法</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他功能<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/map_data">原始数据</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">关于本项目</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div id="backImg" style="width:100%;height:100%;">
+    <div id="container" style="height: 100%"></div>
+</div>
+
+<script type="text/javascript" src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.3.2/dist/extension/dataTool.min.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+
+
+<script type="text/javascript">
+
+$.ajax({
+    type:'GET',
+    url:"http://127.0.0.1:5000/map_data",
+    dataType:'json',
+    success:function(data){
+          console.log(data);
+          var dom = document.getElementById('container');
+          var myChart = echarts.init(dom, null, {renderer: 'canvas', useDirtyRect: false});
+    var app = {};
+
+    var option;
+
+    option = {
+        xAxis: {
+            show: false
+  },
+        yAxis: {
+            show: false
+        },
+        series: [
+
+        ],
+        graphic: [
+    {
+      type: 'group',
+      left: '1%',
+      top: '80%',
+      children: [
+        {
+          type: 'rect',
+          z: 100,
+          left: 'center',
+          top: 'middle',
+          shape: {
+            width: 240,
+            height: 90
+          },
+          style: {
+            fill: '#fff',
+            stroke: '#555',
+            lineWidth: 1,
+            shadowBlur: 8,
+            shadowOffsetX: 3,
+            shadowOffsetY: 3,
+            shadowColor: 'rgba(0,0,0,0.2)'
+          }
+        },
+        {
+          type: 'text',
+          z: 100,
+          left: 'center',
+          top: 'middle',
+          style: {
+            fill: '#333',
+            width: 220,
+            overflow: 'break',
+            text: data['text'],
+            font: '14px Microsoft YaHei'
+          }
+        }
+      ]
+    }
+  ],
+
+};
+    for(var i = 0;i<data['poi'].length;i++)
+    {
+        option.series.push(data['poi'][i])
+    }
+    for(var i = 0;i<data['line_data'].length;i++)
+    {
+        option.series.push(data['line_data'][i])
+    }
+    option.series.push({
+                    'data': data['center'],
+                    'type': 'line',
+                    'symbol': 'circle',
+                    'symbolSize': 35,
+                    'itemStyle': {
+                        'borderWidth': 3,
+                        'borderColor': 'black',
+                        'color': 'black'
+                    }
+                })
+
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+    }
+});
+
+
+
+  </script>
+
+{% extends 'bootstrap/base.html' %}
+</body>
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+{% endblock %}
+
+</html>
+

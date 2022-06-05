@@ -24,6 +24,12 @@
 \providecommand{\bibdate}[1]{#1}
 \providecommand{\biburl}[1]{\newline\url{#1}}
 
+\bibitem{2021Time}
+\bibauthor{WANG H}\@. \bibtitle{Time sensitive sweep coverage with multiple
+  UAVs}\bibmark{\,［C］} //\thinspace{}\bibbooktitle{International Conference
+  on Algorithmic Applications in
+  Management}\@，\bibaddress{［S.l.］}\@，\bibyear{2021}\@.
+
 \bibitem{ziranzaihaifangzhide}
 \bibauthor{武艳敏}\@.
   \bibtitle{自然灾害防治的百年历程与经验}\bibmark{\,［J］}\@.
@@ -39,6 +45,11 @@
   \bibtitle{末端无人机物流路径规划研究综述}\bibmark{\,［J］}\@.
   \bibjournal{物流技术}\@，\bibyear{2019}\@，\bibvolume{6}\@.
 
+\bibitem{2010dizhen}
+\bibauthor{臧克\@，孙永华}\@.
+  \bibtitle{微型无人机遥感系统在汶川地震中的应用}\bibmark{\,［J］}\@.
+  \bibjournal{自然灾害学报}\@，\bibyear{2010}\@，\bibvolume{19}\bibnumber{（3）\!\!}\thinspace{}\textnormal{：}\bibpages{5}\@.
+
 \bibitem{zhanghonghai}
 \bibauthor{张洪海\@，张连东\@，刘皞，等}\@.
   \bibtitle{城市低空物流无人机航迹规划模型研究}\bibmark{\,［J］}\@.
@@ -50,14 +61,14 @@
   \bibjournal{控制与决策}\@，\bibyear{2021}\@，\bibvolume{36}\bibnumber{（10）\!\!}\thinspace{}\textnormal{：}\bibpages{2313\textnormal{-}2327}\@.
 
 \bibitem{2008Sweep}
-\bibauthor{CHENG W\@，LI M\@，LIU K，et~al}\@. \bibtitle{Sweep Coverage with
-  Mobile Sensors}\bibmark{\,［C］} //\thinspace{}\bibbooktitle{Parallel and
-  Distributed Processing, 2008. IPDPS 2008. IEEE International Symposium
+\bibauthor{CHENG W\@，LI M\@，LIU K，et~al}\@. \bibtitle{Sweep coverage with
+  mobile sensors}\bibmark{\,［C］} //\thinspace{}\bibbooktitle{Parallel and
+  distributed processing, 2008. IPDPS 2008. IEEE International Symposium
   on}\@，\bibaddress{［S.l.］}\@，\bibyear{2008}\@.
 
 \bibitem{2015Shorten}
 \bibauthor{FENG Y\@，GAO X\@，FAN W，et~al}\@. \bibtitle{Shorten the
-  Trajectory of Mobile Sensors in Sweep Coverage Problem}\bibmark{\,［C］}
+  trajectory of mobile sensors in sweep coverage problem}\bibmark{\,［C］}
   //\thinspace{}\bibbooktitle{IEEE Global Communications
   Conference}\@，\bibaddress{［S.l.］}\@，\bibyear{2015}\@.
 
@@ -130,13 +141,13 @@
 
 \bibitem{2019Energy}
 \bibauthor{CHOI Y\@，CHOI Y\@，BRICENO S，et~al}\@.
-  \bibtitle{Energy-Constrained Multi-UAV Coverage Path Planning for an Aerial
-  Imagery Mission Using Column Generation}\bibmark{\,［J］}\@.
+  \bibtitle{Energy-Constrained multi-UAV coverage path Planning for an aerial
+  imagery mission using column generation}\bibmark{\,［J］}\@.
   \bibjournal{Journal of Intelligent and Robotic Systems}\@，\bibyear{2019}\@.
 
 \bibitem{2020A}
-\bibauthor{LI J\@，XIONG Y\@，SHE J，et~al}\@. \bibtitle{A Path Planning
-  Method for Sweep Coverage With Multiple UAVs}\bibmark{\,［J］}\@.
+\bibauthor{LI J\@，XIONG Y\@，SHE J，et~al}\@. \bibtitle{A path planning
+  method for sweep coverage with multiple UAVs}\bibmark{\,［J］}\@.
   \bibjournal{IEEE Internet of Things
   Journal}\@，\bibyear{2020}\@，\bibvolume{PP}\bibnumber{（99）\!\!}\thinspace{}\textnormal{：}\bibpages{1\textnormal{-}1}\@.
 
@@ -165,16 +176,5 @@
 \bibauthor{刘平}\@.
   \bibtitle{无人机送快递,助推物流业“智慧转型”}\bibmark{\,［J］}\@.
   \bibjournal{金融经济}\@，\bibyear{2016}\@.
-
-\bibitem{hayat2016survey}
-\bibauthor{HAYAT S\@，YANMAZ E\@，MUZAFFAR R}\@. \bibtitle{Survey on unmanned
-  aerial vehicle networks for civil applications: A communications
-  viewpoint}\bibmark{\,［J］}\@. \bibjournal{IEEE Communications Surveys \&
-  Tutorials}\@，\bibyear{2016}\@，\bibvolume{18}\bibnumber{（4）\!\!}\thinspace{}\textnormal{：}\bibpages{2624\textnormal{-}2661}\@.
-
-\bibitem{xumin2017}
-\bibauthor{徐珉\@，胡南}\@.
-  \bibtitle{基于蜂窝网络的无人机通信研究}\bibmark{\,［J］}\@.
-  \bibjournal{移动通信}\@，\bibyear{2017}\@，\bibvolume{41}\bibnumber{（22）\!\!}\thinspace{}\textnormal{：}\bibpages{23\textnormal{-}28}\@.
 
 \end{thebibliography}

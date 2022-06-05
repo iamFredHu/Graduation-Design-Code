@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>无人机路径规划演示</title>
+    <!-- JavaScript Bundle with Popper -->
+    <!-- CSS only -->
+    <style>
+        html, body, #container {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+        }
+
+        .range-con {
+            z-index: 2;
+            position: fixed;
+            right: 20px;
+            top: 20px;
+            background: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body>
+{% block navbar %}
+    {{ nav.top.render() }}
+{% endblock %}
+<div id="container" class="container"></div>
+
+<script src="//webapi.amap.com/maps?v=1.4.15&key=2eae9dbb235701d8e34338dc12025e81&"></script>
+<script src="//webapi.amap.com/loca?v=1.3.2&key=2eae9dbb235701d8e34338dc12025e81"></script>
+<!--<script src="line.js"></script> !-->
+<script>
+    var map = new AMap.Map('container', {
+        mapStyle: 'amap://styles/dark',
+        features: ['bg', 'road'],
+        pitch: 40,
+        zoom: 10,
+        center: [116.39,39.9]
+    });
+
+    var layer = new Loca.LinkLayer({
+        map: map,
+        fitView: true,
+    });
+
+    var city_line = [{"name":"北京市-天津市","line":["116.362500,39.912500","116.366100,39.913083"]},
+        {"name":"北京市-河北省","line":["116.366100,39.913083","114.530235,38.037433"]},
+        {"name":"河北省-北京市","line":["114.530235,38.037433","116.362500,39.912500"]}]
+    layer.setData(city_line, {
+        lnglat: 'line'
+    });
+
+    // 构造矢量圆形
+    var circle = new AMap.Circle({
+        center: new AMap.LngLat("116.362500", "39.912500"), // 圆心位置
+        radius: 10,  //半径
+        strokeColor: "#F33",  //线颜色
+        strokeOpacity: 1,  //线透明度
+        strokeWeight: 3,  //线粗细度
+        fillColor: "#ee2200",  //填充颜色
+        fillOpacity: 0.35 //填充透明度
+    });
+
+    //var path = [
+    //new AMap.LngLat(116.362500,39.912500),
+    //new AMap.LngLat(116.366100,39.913083),
+    //new AMap.LngLat(116.366100,39.913083),
+];
+
+    // 创建折线实例
+    //var polyline = new AMap.Polyline({
+    //    path: path,
+    //    borderWeight: 2, // 线条宽度，默认为 1
+    //    strokeColor: 'red', // 线条颜色
+    //    lineJoin: 'round' // 折线拐点连接处样式
+    //});
+
+    var marker = new AMap.Marker({
+        position: new AMap.LngLat(116.362500,39.912500),
+        offset: new AMap.Pixel(-10, -10),
+        icon: '//vdata.amap.com/icons/b18/1/2.png', // 添加 Icon 图标 URL
+        title: '无人机基地'
+    });
+
+    map.add(marker);
+    // 将折线添加至地图实例
+    //map.add(polyline);
+
+    // add方法可以传入一个覆盖物数组，将点标记和矢量圆同时添加到地图上
+    // map.add(circle);
+
+    layer.setOptions({
+        style: {
+            borderWidth: 1.5,
+            opacity: 0.8,
+            color: '#fdbf6f'
+        }
+    });
+
+    layer.render();
+</script>
+
+{% extends 'bootstrap/base.html' %}
+</body>
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css">
+{% endblock %}
+</html>

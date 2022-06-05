@@ -1,0 +1,92 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/zh/editor.html?c=line-in-cartesian-coordinate-system&code=PYBwLglsB2AEC8sDeAoWsAeBBDEDOAXMmurHgBbADuRAZgIYA2eApiQL4A0JAnjvkVSkylGrAbM26LiVYAnCC0KwA2iXRDhsACb0w9Imq2kVARgAMnWABZzAXW7H0KgKyXYF-46crbVgExe6lpmlrZ2wegOkbBgPCAsRADkjBDQLEnewng8ALYARsCMyWAK9NAA5owZWaQ5BUUAyhAAXomwgbXoEGAsuY1x1YIx6IVy2ixyAOoQ2mDkRADMXaRjE3IAwkXAcskAxACiBwBsp8eZI7AAxtu7sEk8LIyM1Ekx7MEywprCuvqGlxUnRsQScqjcVk80TBvncgWhPk64RiCOEcQSyVS6QuxnqhWK91KEHKVRqMTxTVa7U6MR6fQGPCGxDBa0mMzmC1gy0urM2t32RzO5xW6BuLzuSXyjAArhl3p9vBF2ABuIA
+	请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="zh-CN" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+    <title>无人机路径规划演示</title>
+</head>
+<body style="height: 100%; margin: 0">
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">无人机紧急救援模拟系统（带载重的贪婪成本选择算法）</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/">主页</a></li>
+          <li class="active"><a href="/import">数据导入<span class="sr-only">(current)</span></a></li>
+          <li><a href="/show">结果展示</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">算法选择<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://127.0.0.1:5000/">带载重的贪婪成本选择算法</a></li>
+            <li><a href="http://127.0.0.1:5001/">带自交的遗传算法</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他功能<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/map_data">原始数据</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">关于本项目</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="page-header">
+  <h1>数据导入<small>Data Import</small></h1>
+</div>
+
+<div class="alert alert-info" role="alert" style = "padding: 10px 500px 10px;">
+    <h4>导入说明</h4>
+    <p>1.兴趣点的数量选择：25 50 75 100 150 200 250 300 350 400 450 500<br>
+        2.时间敏感性的选择：(20,120) (30,120) (50,140) (60,150) (90,180)<br></p>
+</div>
+<div style = "padding: 10px 500px 10px;">
+<form action="{{ url_for('index') }}" method="post">
+    <ul class="list-group">
+        <li class="list-group-item">整体设置：</li>
+        <li class="list-group-item"><div class="input-group"><span class="input-group-addon" id="basic-addon3">兴趣点数量(n)</span><input type="text" class="form-control" name="poinum" aria-describedby="basic-addon3" value="{{ show_n }}" ></div></li>
+        <li class="list-group-item"><div class="input-group"><span class="input-group-addon" id="basic-addon3">无人机数量(m)</span><input type="text" class="form-control" name="uavnum" aria-describedby="basic-addon3" value="{{ show_m }}"></div></li>
+        <li class="list-group-item"><div class="input-group"><span class="input-group-addon" id="basic-addon3">最小时间敏感性(Ts,min)</span><input type="text" class="form-control" name="tsmin" aria-describedby="basic-addon3" value="{{ show_tsmin }}"></div></li>
+        <li class="list-group-item"><div class="input-group"><span class="input-group-addon" id="basic-addon3">最大时间敏感性(Ts,max)</span><input type="text" class="form-control" name="tsmax" aria-describedby="basic-addon3" value="{{ show_tsmax }}"></div></li>
+        <hr />
+        <li class="list-group-item">无人机参数设置：</li>
+        <li class="list-group-item"><div class="input-group"><span class="input-group-addon" id="basic-addon3">无人机飞行速度(m/s)</span><input type="text" class="form-control" name="uavspeed" aria-describedby="basic-addon3" value="{{ show_uavspeed }}"></div></li>
+        <li class="list-group-item"><div class="input-group"><span class="input-group-addon" id="basic-addon3">无人机最大载重(kg)</span><input type="text" class="form-control" name="uavweight" aria-describedby="basic-addon3" value="{{ show_uavweight }}"></div></li>
+        <hr />
+        <div style="text-align: center;"><li class="list-group-item"><input type="submit" value="提交"></li></div>
+    </ul>
+
+</form>
+</div>
+
+{% extends 'bootstrap/base.html' %}
+</body>
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+{% endblock %}
+
+</html>
+

@@ -35,7 +35,7 @@
   % 日期自动使用当前时间，若需指定按如下方式修改：
   cdate={2022年6月},
   % 指定第二页封面的日期，即答辩日期
-  cdatesecond={2022年06月XX日},
+  cdatesecond={2022年06月09日},
   cstudentid={180110505},
   % cstudenttype={同等学力人员}, %非全日制教育申请学位者
   %（同等学力人员）、（工程硕士）、（工商管理硕士）、
@@ -58,22 +58,41 @@
   estudenttype={Master of Engineering},
   %
   % 关键词用“英文逗号”分割
-  ckeywords={无人机, 扫描覆盖, 贪心算法, 遗传算法},
-  ekeywords={UAV, sweep coverage, greedy algorithm, genetic algorithm},
+  ckeywords={无人机网络, 扫描覆盖, 贪婪算法, 遗传算法},
+  ekeywords={UAV network, sweep coverage, greedy algorithm, genetic algorithm},
 }
 
 % 中文摘要
 \begin{cabstract}
-近年来，随着无人机技术的高速发展，其在航拍、物流、农业、公共安全和救援等领域有着非常广阔的发展前景，在这些领域中，常常需要多架无人机对特定区域进行扫描覆盖任务。由于无人机的路线规划方案对无人机的扫描覆盖率有着较大的影响，因此针对无人机的路径优化研究就显得非常必要和有意义。
+  近年来，随着无人机技术的高速发展，其在航拍、物流、农业、公共安全和救援等领域有着非常广阔的发展前景。
+  在这些领域中，常常需要多架无人机组成无人机网络对特定区域进行扫描覆盖任务。在无人机网络中，
+  多架无人机之间的通信不完全依赖于基础通信设施，而是以无人机作为节点，进行数据的传输和交换。
+  无人机的协同飞行路径规划方案对无人机的扫描覆盖率有着较大的影响，因此针对无人机网络中路径优化的研究就显得非常必要和有意义。
 
 
-本文根据国内外研究现状，以灾害发生后的应急救灾场景作为背景，着重考虑了无人机的特点和救援任务对时间的要求等因素，构建了多目标带时间窗的无人机扫描覆盖路径问题模型，以实现较高有效覆盖率的目标。接下来针对贪心算法，修改了其成本函数的构造方式，改进了无人机的路径规划流程，设计了GCSAWL算法；同时针对遗传算法，在流程中增加了多轮筛选、优秀个体自交等过程，使其流程更符合自然进化的规律，设计了GAWS算法。实验结果表明，改进后的GCSAWL算法相较GCS算法在有效覆盖率方面平均提升约5\%至6\%，运输成本与时间方面平均降低约3\%至4\%，而GAWS算法相较GCS算法在有效覆盖率方面平均提升约8\%至9\%，运输成本与时间方面平均降低约5\%至7\%。最后，还设计了一套无人机紧急救援模拟系统，实现了无人机路径规划与调度情况的直观显示。
+  本文根据国内外研究现状，以灾害发生后的应急救援场景作为背景，着重考虑了无人机的特点和救援任务对时间的要求等因素，构建了带时间敏感性的无人机网络扫描覆盖问题的模型，以实现较高的有效覆盖率为问题目标。
+  接下来以贪婪式成本选择GCS算法\cite{2021Time}为基础，修改了其成本函数的构造方式，改进了无人机的路径规划流程，设计了GCSAWL算法；同时针对经典遗传算法，在流程中增加了多轮筛选、优秀个体自交等过程，使其流程更符合自然进化的规律，
+  设计了GAWS算法。实验结果表明，改进后的GCSAWL算法相较GCS算法在有效覆盖率方面平均提升约5\%至6\%，运输成本与时间方面平均降低约3\%至4\%，而GAWS算法相较经典遗传算法在有效覆盖率方面平均提升约8\%至9\%，运输成本与时间方面平均
+  降低约5\%至7\%。最后，还设计了一套无人机网络紧急救援模拟系统，实现了无人机路径规划与调度情况的直观显示。
+  
 \end{cabstract}
 
 % 英文摘要
 \begin{eabstract}
-In recent years, with the rapid development of UAV technology, it has a very broad development prospect in the fields of aerial photography, logistics, agriculture, public safety and rescue. Scan overwrite tasks. Since the route planning scheme of the UAV has a great influence on the scanning coverage of the UAV, it is very necessary and meaningful to study the path optimization of the UAV.
+  In recent years, with the rapid development of UAV technology, it has very broad development prospects in the fields of aerial photography,
+  logistics, agriculture, public safety and rescue. In these fields, multiple UAVs often make up the UAV network to scan and cover a specific area. In the UAV network, 
+  the communication between multiple UAVs does not completely depend on the basic communication facilities, but uses UAVs as nodes to transmit and exchange data.
+  The coordinated flight path planning scheme of the UAV has a great influence on the scanning coverage rate of the UAV, so the research on the path optimization in the UAV network is 
+  very necessary and meaningful.
 
 
-According to the current research situation at home and abroad, taking the emergency rescue scene after the disaster as the background, focusing on factors such as the characteristics of the UAV and the time requirements of the rescue mission, a multi-target UAV scanning coverage path with a time window is constructed. problem model to achieve the goal of high effective coverage. Next, for the greedy algorithm, the construction method of its cost function was modified, the path planning process of the UAV was improved, and the GCSAWL algorithm was designed; at the same time, for the genetic algorithm, multiple rounds of screening and excellent individual self-crossing were added to the process , so that the process is more in line with the law of natural evolution, and the GAWS algorithm is designed. The experimental results show that the improved GCSAWL algorithm has an average increase of about 5\% to 6\% in effective coverage compared with the GCS algorithm, and an average reduction of about 3\% to 4\% in transportation cost and time, while the GAWS algorithm is more effective than the GCS algorithm. In terms of coverage, the average increase is about 8\% to 9\%, and the average transportation cost and time are reduced by about 6\% to 7\%. Finally, a set of UAV emergency rescue simulation system is also designed, which realizes the intuitive display of UAV path planning and scheduling.
+  According to the research status at home and abroad, this paper takes the emergency rescue scene after the disaster as the background, and focuses on factors such as the characteristics of 
+  the UAV and the time requirements of the rescue mission, and constructs a multi-target time-sensitive unmanned aerial vehicle with a time window. A model of the man-machine network scanning
+  coverage problem to achieve the goal of higher effective coverage. Next, based on the greedy cost selection GCS algorithm, the construction method of its cost function was modified, the path
+  planning process of the UAV was improved, and the GCSAWL algorithm was designed; at the same time, for the common genetic algorithm, multiple rounds were added to the process. The process 
+  of screening and self-crossing of excellent individuals makes the process more in line with the law of natural evolution, and the GAWS algorithm is designed. The experimental results show 
+  that the improved GCSAWL algorithm has an average increase of about 5\% to 6\% in effective coverage compared with the GCS algorithm, and an average reduction of about 3\% to 4\% in 
+  transportation cost and time, while the GAWS algorithm is more effective than the classic genetic algorithm. In terms of coverage, the average increase is about 8\% to 9\%, and the average transportation
+  cost and time are reduced by about 5\% to 7\%. Finally, a set of UAV emergency rescue simulation system is also designed, which realizes the intuitive display of UAV path planning and 
+  scheduling.
 \end{eabstract}

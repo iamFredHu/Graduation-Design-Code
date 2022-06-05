@@ -78,7 +78,7 @@
 \DeclareBoolOption[true]{absupper}
 \DeclareBoolOption[true]{alphappendix}
 \DeclareBoolOption[true]{bsmainpagenumberline}
-\DeclareBoolOption[true]{bsfrontpagenumberline}
+\DeclareBoolOption[false]{bsfrontpagenumberline}
 \DeclareBoolOption[true]{bsheadrule}
 \newif\ifhitsz@newtxmath
 \newif\ifhitsz@mtprotwolite
