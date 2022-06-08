@@ -31,7 +31,6 @@
     最优的无人机扫描覆盖路径，再将其传输至前端以供展示最终结果。
 \end{itemize}
 \section{无人机网络紧急救援模拟系统的设计概要}[design brief]
-\subsection{系统框架}[en title]
 该系统基于Web设计，使用B/S设计模式，其特点是客户端与服务端分离，通过通信协议进行数据传输，两者内部的实现是独立的，能够降低开发难度和维护难度。前端界面运行于用户浏览器中，使用HTML、CSS和JavaScript实现，并使用Ajax向后端发送和接收数据信息。后端使用Flask框架设计，负责路径规划的计算以及其他后台服务。
 本系统中用户只需要选择区域，设置好相关参数，即可开始使用所有的功能。
 
@@ -50,27 +49,27 @@
 
 \section{无人机网络紧急救援模拟系统的成果展示}[en title]
 \subsection{使用方法}[en title]
-在使用本系统时，用户需要在浏览器中打开本系统的网址。页面左侧的是参数设置模块，右侧是实际区域的地图，用户可以根据需要设置待救援点的位置，无人机基地的位置，无人机的数量、型号、载重和续航里程等信息，确认无误后点击“提交”按钮，即可生成最终的规划路径。
+在使用本系统时，用户需要在浏览器中打开本系统的网址。页面中可以选择参数设置模块，选择后可以查看无人机的路径规划。用户可以根据需要设置待救援点的位置，无人机基地的位置，无人机的数量、型号、载重和续航里程等信息，确认无误后点击“提交”按钮，即可生成最终的规划路径。
 \subsection{页面展示}[en title]
-如\figref{fg602}所示，系统界面主要分为2个部分，左侧为相关参数的输入设置，右侧为地图的展示区域。地图中除了实际的地图显示，还使用符号标记了用户设置的兴趣点和无人机基地信息。
+如\figref{fg602}所示，系统界面主要分为主页、数据导入和结果展示三个部分。
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.9\textwidth]{fg7_zhujiemian}
+	\includegraphics[width = 1\textwidth]{fg7_zhujiemian}
 	\caption{系统主界面}
 	\label{fg602}
 \end{figure}
-而左侧的参数设置区域又可以分为兴趣点参数设置和无人机参数设置两个模块，分别如\figref{fg603}和\figref{fg604}所示：
+而参数设置区域又可以分为整体设置和无人机参数设置两个模块，分别如\figref{fg603}和\figref{fg604}所示：
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.4\textwidth]{fg8_poi}
-	\caption{兴趣点参数设置界面}
+	\includegraphics[width = 1\textwidth]{fg8_poi}
+	\caption{整体设置界面}
 	\label{fg603}
 \end{figure}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.35\textwidth]{fg9_uav}
+	\includegraphics[width = 1\textwidth]{fg9_uav}
 	\caption{无人机参数设置界面}
 	\label{fg604}
 \end{figure}
@@ -78,7 +77,7 @@
 这时前端界面便会开始展示无人机的飞行路径。以选择带自交的遗传算法为例，系统页面展示的结果如\figref{fg605}所示：
 \begin{figure}[H]
 	\centering
-	\includegraphics[width = 0.85\textwidth]{fg10_result}
+	\includegraphics[width = 1\textwidth]{fg10_result}
 	\caption{在系统中选择带自交的遗传算法后的无人机路径规划结果}
 	\label{fg605}
 \end{figure}
