@@ -4,7 +4,7 @@
 \chapter{带载重的贪婪成本选择算法设计与实现}[Model Solving Scheme Based on Improved Greedy Algorithm]
 
 \section{贪婪式成本选择算法的改进}[Improved algorithms]
-相比设计时参考的贪婪成本选择（Greedy Cost Selection,GCS）算法，本算法主要有以下方面的改进：
+相比设计时参考的贪婪成本选择（Greedy Cost Selection, GCS）算法，本算法主要有以下方面的改进：
 % \begin{itemize}
 %	\item [(1)] 代价函数重新调整了权重，无人机续航时间与兴趣点存活时间之间的关系对于无人机访问兴趣点的先后顺序的影响权重较大，所以提高了该项数据在代价函数中的优先级，
 %	同时代价函数中加入了载重相关的因素，尽量防止无人机的路径规划中存在有无人机超重运输的情况；
@@ -19,7 +19,7 @@
 \end{itemize}
 
 
-由于相较GCS算法，改进后的算法主要增加了对无人机载重情况的考虑，故本文将其命名为带载重的贪婪成本选择算法（Greedy Cost Selection Algorithm With Load,GCSAWL）。
+由于相较GCS算法，改进后的算法主要增加了对无人机载重情况的考虑，故本文将其命名为带载重的贪婪成本选择算法（Greedy Cost Selection Algorithm With Load, GCSAWL）。
 
 \section{带载重的贪婪成本选择算法的描述}[Algorithm th]
 带载重的贪婪成本选择算法属于贪婪式算法，使用GCSAWL对模型进行求解的基本思想是，在一次救援任务中依次为每架无人机生成扫描覆盖路径，每条扫描覆盖路径的起点和终点均为基地$B$。在路径规划过程中，本文设计了一个成本函数来计算访问每个兴趣点的成本。
